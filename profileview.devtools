@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>d3gev - FigureBlox</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="user-data" data-userid="11765165303" data-name="d3gev" data-displayname="d3gev">
+<link rel="stylesheet" data-bundlename="FoundationCss" href="https://css.rbxcdn.com/55280c7812e72016172462bfabdb6806238abfd0f279b87783e71ac52d440a72-FoundationCss.css">
+<link rel="stylesheet" data-bundlename="ReactStyleGuide" href="https://css.rbxcdn.com/cbc004c933c81fb07d6c57dd882001686ae4f26f1f13134ea1b138d7866af876-ReactStyleGuide.css">
+<link rel="stylesheet" data-bundlename="StyleGuide" href="https://css.rbxcdn.com/31c3f6ea601e985d7b74b97c40f5a8dec7f56b1e2cb56f24a8073878c09c54d4-StyleGuide.css">
+<link rel="stylesheet" data-bundlename="Builder" href="https://css.rbxcdn.com/835ad8483ecae12366bf4b80701ee78af7c5b58cdb95a529e061851cf7bc1c7f-Builder.css">
+<link rel="stylesheet" data-bundlename="Thumbnails" href="https://css.rbxcdn.com/523c59064ab61f06e8d52365e916d731063e2a67981bcf994376f68214f5f8e4-Thumbnails.css">
+<link rel="stylesheet" data-bundlename="SearchLandingPage" href="https://css.rbxcdn.com/3d2ed080fe3621c03204c3c02e30ecb20ddc28f45c8f1c38c1999e3b888b67d5-SearchLandingPage.css">
+<link rel="stylesheet" data-bundlename="RobuxIcon" href="https://css.rbxcdn.com/7dfc7837b5da6850e13413c630b37da7e88aeb610ca2c7d4e8b71b02cbdc6ba6.css">
+<link rel="stylesheet" data-bundlename="RobloxBadges" href="https://css.rbxcdn.com/b2cff71de0c286e8f85b1a26a8b87a8cd7f77422c592849ad5114ac5d929c575.css">
+<link rel="stylesheet" data-bundlename="Navigation" href="https://css.rbxcdn.com/0163ae5327c6b900779e89f08d6ac666dde20a79f256be71b7ce60253ded6b50-Navigation.css">
+<link rel="stylesheet" data-bundlename="CookieBannerV3" href="https://css.rbxcdn.com/5ecfbd9e9320d9cc9e7f87ae35c6aa2f79f9fa66f7c839eb4f0b4269a8227677-CookieBannerV3.css">
+<link rel="stylesheet" data-bundlename="Footer" href="https://css.rbxcdn.com/8b759c6280a056ed34d6d00ba7fa7abacfb3009b8e93e677416723b0c1056cad-Footer.css">
+<link rel="stylesheet" data-bundlename="FriendsCarousel" href="https://css.rbxcdn.com/3e77aa4c7a11c44d70d59835ca9faad3fa481f6b79bb61c8760a671af6951c3f-FriendsCarousel.css">
+<link rel="stylesheet" data-bundlename="UserDescription" href="https://css.rbxcdn.com/fdbc0173245f68440cbb311624eb6859d2e4024b89281763b7323e318a19c4c0.css">
+<link rel="stylesheet" data-bundlename="ProfileHeader" href="https://css.rbxcdn.com/2e9673d3e9b0a29541b0699c7a45666373f18c62933e1494f1ae2c334c72326c-ProfileHeader.css">
+<link rel="stylesheet" data-bundlename="CurrentWearing" href="https://css.rbxcdn.com/cc693776e7662b9afb39b185b252b4f5e8cfb19436bf079b0bc6e2e970112c9d.css">
+<link rel="stylesheet" data-bundlename="ProfileBadges" href="https://css.rbxcdn.com/12908c31c53f8fdfffbdea99689dfaddc1d2577a69d19c8bf86d6dda93d306f7.css">
+<link rel="stylesheet" data-bundlename="ProfilePlatform" href="https://css.rbxcdn.com/5e373ed6c9262199dd06ba7e7952a1aef9e642f8e168c0be8ca39674cbcce022-ProfilePlatform.css">
+<link rel="stylesheet" href="https://static.rbxcdn.com/css/leanbase___80400f5d6146e08bcf1e66a17ee0554e_m.css/fetch">
+<link rel="stylesheet" href="https://static.rbxcdn.com/css/page___44bfdb004cc328847073fece7276981f_m.css/fetch">
+<style id="rbxtest-profileview-styles">
+html.rbx-auth-pending body { visibility: hidden; }
+.profile-avatar { width: 100%; height: 100%; object-fit: cover; display: block; }
+[data-rbx-avatar] { display: block !important; position: relative !important; overflow: hidden !important; border-radius: inherit; background-image: none !important; }
+[data-rbx-avatar]::before, [data-rbx-avatar]::after { display: none !important; content: none !important; }
+[data-rbx-avatar] > img.profile-avatar { display: block !important; visibility: visible !important; opacity: 1 !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; position: relative; z-index: 1; }
+
+[hidden] { display: none !important; }
+/* Profile header is a normal (non-clickable) block; only its real links/buttons are interactive */
+#profile-area a, #profile-area button.more-btn, #profile-area .buttons-show-on-desktop button, #profile-area .buttons-show-on-mobile button { cursor: pointer; }
+.profile-header-main { flex: 1 1 auto; color: inherit; font: inherit; text-align: left; }
+/* About / Creations / Currently Wearing are always visible, stacked under the header */
+#profile-details { display: block; }
+#profile-details .profile-section { padding-top: 24px; }
+#profile-details .profile-section-title { margin: 0 0 12px; }
+#profile-details .profile-about-text { margin: 0; white-space: pre-wrap; font: inherit; }
+#profile-details .profile-empty { margin: 0; opacity: .7; }
+/* Presence (online) icon: FigureBlox's own .icon-online styling is used; this only keeps it on top of the avatar */
+.avatar-card-fullbody, .avatar-headshot-lg .avatar { position: relative; }
+.avatar-card-fullbody > .avatar-status { position: absolute; right: 0; bottom: 0; z-index: 5; line-height: 0; pointer-events: none; }
+/* only applied by script if FigureBlox's stylesheet did not load (icon would otherwise be invisible) */
+.avatar-status.presence-fallback [data-testid="presence-icon"] { display: block; width: 18px; height: 18px; box-sizing: border-box; border-radius: 50%; background: #00b06f; border: 3px solid var(--color-surface-0, #fff); }
+/* Profile details: About / Creations tabs (About is selected by default) */
+#profile-details, #profile-details[hidden] { display: block !important; visibility: visible !important; }
+#profile-details .profile-tabs { list-style: none; margin: 0; padding: 0; display: flex; border-bottom: 1px solid var(--color-divider, rgba(128,128,128,.4)); }
+#profile-details .profile-tabs li { flex: 1 1 0; display: flex; justify-content: center; }
+#profile-details .profile-tab { text-decoration: none; cursor: pointer; color: inherit; opacity: .75; }
+#profile-details .profile-tab.active { opacity: 1; font-weight: 700; box-shadow: inset 0 -2px 0 currentColor; }
+#profile-details .profile-tab-content[hidden] { display: none !important; }
+#profile-details .profile-empty { margin: 0; opacity: .7; }
+.css-1jynqc0-carouselContainer { position: relative; }
+.css-1i465w8-carousel { scroll-behavior: smooth; }
+.scroll-arrow { position: absolute; top: 50%; right: 0; transform: translateY(-50%); cursor: pointer; z-index: 3; }
+.scroll-arrow[hidden] { display: none !important; }
+.scroll-arrow.arrow-fallback { width: 36px; height: 36px; border-radius: 50%; background: rgba(40,40,40,.85); color: #fff; display: flex; align-items: center; justify-content: center; }
+.scroll-arrow.arrow-fallback .icon-chevron-heavy-right::before { content: "\203A"; font-size: 26px; line-height: 1; }
+/* "more" -> About dialog */
+.rbxtest-dialog-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
+.rbxtest-dialog { position: relative; width: 100%; max-width: 480px; max-height: 85vh; overflow: auto; border-radius: 12px; background: var(--color-surface-0, #fff); color: var(--color-content-default, inherit); }
+.rbxtest-dialog-close { position: absolute; top: 8px; right: 12px; z-index: 1; background: none; border: 0; padding: 0 4px; font-size: 28px; line-height: 1; color: inherit; cursor: pointer; }
+.rbxtest-dialog .edit-bio-btn { background: none; border: 0; padding: 0; margin-top: 8px; cursor: pointer; color: inherit; text-decoration: underline; }
+.profile-platform-container[hidden], #edit-user-profile-web-app[hidden] { display: none !important; }
+.profile-setting-row { text-align: left; }
+.profile-setting-row-value { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rbxtest-dialog [data-profile-about] { white-space: pre-wrap; overflow-wrap: anywhere; }
+#profile-area pre.description-content { white-space: pre-wrap; overflow-wrap: anywhere; }
+.rbxtest-frame-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; z-index: 6; }
+.rbxtest-frame-tile { width: 92px; padding: 10px 6px; border: 2px solid rgba(128,128,128,.4); border-radius: 12px; background: none; color: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; font: inherit; }
+.rbxtest-frame-tile[aria-pressed="true"] { border-color: #335fff; }
+.rbxtest-frame-thumb { width: 56px; height: 56px; border-radius: 50%; border: 2px dashed rgba(128,128,128,.6); display: flex; align-items: center; justify-content: center; font-size: 24px; opacity: .8; }
+/* fallback layout for the Currently Wearing carousel (its styles are normally injected by FigureBlox's scripts) */
+.css-1i465w8-carousel { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+.css-izzd58-carouselItem, .css-6xn1qo-carouselItem { flex: 0 0 150px; width: 150px; }
+
+</style>
+<script src="shell.js" defer></script>
+<script id="rbxtest-avatar-detect">
+/* AVATAR DETECTION SCRIPT
+   Signup saves account.selectedCharacter = "male" | "female" (see index.html).
+   This script detects the logged-in account, reads that saved choice and puts the matching avatar URL
+   (male -> proud-river worker, female -> green-leaf worker) into the <img> inside EVERY
+   .thumbnail-2d-container.avatar-card-image on the page, now and whenever the site redraws one. */
+(function () {
+    var URLS = {
+        male: 'https://proud-river-a3e7.tristan-manzano-actor.workers.dev/',
+        female: 'https://green-leaf-a836.tristan-manzano-actor.workers.dev/'
+    };
+    var SELECTOR = '.thumbnail-2d-container.avatar-card-image';
+    var EXTRA = 'a[href="/users/profile"] .thumbnail-2d-container, a[href^="/users/"][href$="/profile"] .thumbnail-2d-container, #header .avatar-headshot .thumbnail-2d-container, #header .avatar-headshot-xs .thumbnail-2d-container';
+
+    function readJSON(storage, key) {
+        try { return JSON.parse(storage.getItem(key)); } catch (e) { return null; }
+    }
+    // 1) the current logged-in account (session -> saved account)
+    function detectCurrentAccount() {
+        var session = readJSON(sessionStorage, 'rbxtest_session') || readJSON(localStorage, 'rbxtest_session');
+        if (!session || !session.username) return null;
+        var accounts = readJSON(localStorage, 'rbxtest_accounts') || {};
+        return accounts[session.username] || null;
+    }
+    // 2) its saved selectedCharacter -> the avatar URL
+    function avatarFileForAccount(account) {
+        var choice = String((account && (account.selectedCharacter || account.character)) || '').toLowerCase();
+        return choice === 'female' ? URLS.female : URLS.male;
+    }
+
+    function setAvatar(container, file) {
+        var only = container.children.length === 1 ? container.firstElementChild : null;
+        if (only && only.tagName === 'IMG' && only.getAttribute('data-avatar-file') === file ) return;   // already correct
+        var img = document.createElement('img');
+        img.className = 'profile-avatar';
+        img.setAttribute('data-avatar-file', file);
+        img.alt = 'FigureBlox avatar';
+        img.src = file;
+        container.setAttribute('data-rbx-avatar', 'true');
+        Array.prototype.slice.call(container.classList).forEach(function (c) {
+            if (/shimmer|loading|broken|placeholder/i.test(c)) container.classList.remove(c);
+        });
+        container.replaceChildren(img);
+    }
+    // 3) put the PNG into both (all) avatar locations
+    function loadAccountAvatar(currentAccount) {
+        currentAccount = currentAccount || detectCurrentAccount();
+        if (!currentAccount) return;
+        var file = avatarFileForAccount(currentAccount);
+        var seen = [];
+        var list = Array.prototype.slice.call(document.querySelectorAll(SELECTOR))
+            .concat(Array.prototype.slice.call(document.querySelectorAll(EXTRA)));
+        var viewed = window.__rbxViewAccount;   // set when another player's profile is open
+        list.forEach(function (container) {
+            if (seen.indexOf(container) !== -1) return;
+            seen.push(container);
+            setAvatar(container, viewed && container.closest('#container-main') ? avatarFileForAccount(viewed) : file);
+        });
+    }
+    window.detectCurrentAccount = detectCurrentAccount;
+    window.avatarFileForAccount = avatarFileForAccount;
+    window.loadAccountAvatar = loadAccountAvatar;
+
+    // run now, when the DOM is ready, when everything has loaded, and whenever the site re-renders an avatar
+    var queued = false;
+    function schedule() {
+        if (queued) return;
+        queued = true;
+        (window.requestAnimationFrame || setTimeout)(function () { queued = false; loadAccountAvatar(); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', schedule); else schedule();
+    window.addEventListener('load', schedule);
+    new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<script id="rbxtest-profileview">
+document.documentElement.classList.add('rbx-auth-pending');   // hidden until the saved session is verified
+(function () {
+    var ACCOUNTS_KEY = 'rbxtest_accounts', SESSION_KEY = 'rbxtest_session';
+    function readJSON(storage, key, fallback) {
+        try { var v = JSON.parse(storage.getItem(key)); return v === null || v === undefined ? fallback : v; } catch (e) { return fallback; }
+    }
+    function readSession() {
+        var stores = [sessionStorage, localStorage];
+        for (var i = 0; i < stores.length; i++) {
+            var s = readJSON(stores[i], SESSION_KEY, null);
+            if (s && typeof s === 'object' && s.username && s.token) return s;
+        }
+        return null;
+    }
+    function sha256Hex(text) {
+        if (window.crypto && crypto.subtle) {
+            return crypto.subtle.digest('SHA-256', new TextEncoder().encode(text)).then(function (buf) {
+                return Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+            });
+        }
+        var h = 5381;
+        for (var i = 0; i < text.length; i++) h = ((h << 5) + h + text.charCodeAt(i)) >>> 0;
+        return Promise.resolve('weak-' + h.toString(16));
+    }
+    function tokenHash(token) { return sha256Hex('session:' + token); }
+
+    // Online (presence) icon: shown only while the user is on the site with a valid login session
+    function updatePresence() {
+        if (viewed) {   // another player's profile: their real online / offline state
+            var on = !!(window.rbxShell && rbxShell.isOnline(viewed.username));
+            document.querySelectorAll('#profile-area .avatar-status').forEach(function (el) {
+                el.hidden = !on;
+                if (!on) return;
+                var icon = el.querySelector('[data-testid="presence-icon"]');
+                el.classList.remove('presence-fallback');
+                if (icon && icon.getBoundingClientRect().width < 4) el.classList.add('presence-fallback');
+            });
+            return paintStatus(on);
+        }
+        var session = readSession();
+        var acc = session && readJSON(localStorage, ACCOUNTS_KEY, {})[session.username];
+        var go = function (on) {
+            paintStatus(on);
+            document.querySelectorAll('#profile-area .avatar-status').forEach(function (el) {
+                el.hidden = !on;
+                if (!on) return;
+                var icon = el.querySelector('[data-testid="presence-icon"]');
+                el.classList.remove('presence-fallback');
+                if (icon && icon.getBoundingClientRect().width < 4) el.classList.add('presence-fallback');
+            });
+        };
+        if (!acc) return go(false);
+        tokenHash(session.token).then(function (hash) {
+            go((acc.tokenHashes || []).indexOf(hash) !== -1);
+        });
+    }
+    window.addEventListener('storage', updatePresence);          // logged out / in from another tab
+    window.addEventListener('pageshow', updatePresence);
+    window.addEventListener('load', updatePresence);
+
+    // About / Creations tabs: About is shown on load; clicking a tab swaps the panes
+    function setupTabs() {
+        var tabs = document.querySelectorAll('#profile-details .profile-tab');
+        var panes = document.querySelectorAll('#profile-details .profile-tab-content');
+        function show(name) {
+            tabs.forEach(function (t) { t.classList.toggle('active', t.id === 'tab-' + name); });
+            panes.forEach(function (p) {
+                var on = p.getAttribute('data-tab-pane') === name;
+                p.hidden = !on; p.classList.toggle('hidden', !on);
+            });
+        }
+        tabs.forEach(function (t) {
+            t.addEventListener('click', function (e) { e.preventDefault(); show(t.id.replace('tab-', '')); });
+        });
+        show(location.hash === '#creations' ? 'creations' : 'about');
+    }
+    // "next" arrow on the Currently Wearing row
+    function setupCarouselArrow() {
+        var row = document.querySelector('#profile-details .css-1i465w8-carousel');
+        var arrow = document.querySelector('#profile-details .scroll-arrow.next');
+        if (!row || !arrow) return;
+        function sync() {
+            arrow.hidden = row.scrollWidth - row.clientWidth - row.scrollLeft <= 4;
+            var icon = arrow.querySelector('[data-testid="carousel-scroll-arrow-icon"]');
+            // FigureBlox's stylesheet normally draws this arrow; if it did not load, draw a simple one
+            if (!arrow.hidden && icon && !arrow.classList.contains('arrow-fallback') && arrow.getBoundingClientRect().width < 4) arrow.classList.add('arrow-fallback');
+        }
+        function next() { row.scrollBy({ left: Math.max(300, row.clientWidth * 0.8), behavior: 'smooth' }); }
+        arrow.addEventListener('click', next);
+        arrow.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); } });
+        row.addEventListener('scroll', sync);
+        window.addEventListener('resize', sync);
+        window.addEventListener('load', sync);
+        sync();
+    }
+
+    // ---------- Account data (saved in the same localStorage account record created at signup) ----------
+    var userKey = null, current = null, viewed = null;   // viewed = another player's account when ?u=name is in the URL
+    function subject() { return viewed || current; }
+    var FEMALE_WEARING = "<div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/86499666/Woman-Torso\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-8aed62b01454138862679e7d10fe3214/150/150/Torso/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Woman Torso\">Woman Torso<\/div><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/86499698/Woman-Right-Arm\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-0f055a22b9b4f3f56916062f3c138e3a/150/150/RightArm/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Woman Right Arm\">Woman Right Arm<\/div><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/86499716/Woman-Left-Arm\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-9ea9ab3dff002c34e91cdc3689d8f691/150/150/LeftArm/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Woman Left Arm\">Woman Left Arm<\/div><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/86499753/Woman-Left-Leg\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-af00e83cd9d64118232be884fd8cfe50/150/150/LeftLeg/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Woman Left Leg\">Woman Left Leg<\/div><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/86499793/Woman-Right-Leg\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-2903f8a38eb9ab8b5ac832ad698257d2/150/150/RightLeg/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Woman Right Leg\">Woman Right Leg<\/div><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/bundles/946/Stevie-Standard\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/30DAY-DynamicHeadCostume-DEDA5A3711A759312A2AE54E64C90182-Png/150/150/DynamicHeadCostume/Webp/noFilter\" alt=\"\"><\/span><\/div><span class=\"restriction-icon \"><\/span><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Stevie Standard\">Stevie Standard<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/144076436/Grey-Striped-Shirt-with-Denim-Jacket\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-89a46c4095228f3fa4bc91dbe37867fd/150/150/Shirt/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Grey Striped Shirt with Denim Jacket\">Grey Striped Shirt with Denim Jacket<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/3576686446/Hello\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-a09e4983bbb794987fe4d17d99229775/150/150/EmoteAnimation/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Hello\">Hello<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/3360686498/Stadium\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-b8b896eea07b9ff60e33bd4af613c771/150/150/EmoteAnimation/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Stadium\">Stadium<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/3576823880/Point2\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-c08b49e1ae6e6709459a9edd567f6bb1/150/150/EmoteAnimation/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Point2\">Point2<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/3576968026/Shrug\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-050161df3093d40334da37d0af822ad5/150/150/EmoteAnimation/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Shrug\">Shrug<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Free<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/62724852/Chestnut-Bun\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-96146b6d6d0937c03156c6e2fa16866a/150/150/HairAccessory/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Chestnut Bun\">Chestnut Bun<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Off Sale<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div><div id=\"collection-carousel-item\" class=\"css-6xn1qo-carouselItem\"><div><div class=\"item-card  profile-item-card\"><div class=\"item-card-container\"><a href=\"https://www.roblox.com/catalog/144076512/Pink-Jeans\" target=\"_self\" class=\"item-card-link\"><div class=\"item-card-link\"><div class=\"item-card-thumb-container\"><div class=\"item-card-thumb-container-inner\"><span class=\"thumbnail-2d-container\"><img class=\"\" src=\"https://tr.rbxcdn.com/180DAY-154af358cb7b871258e48415de1c8927/150/150/Pants/Webp/noFilter\" alt=\"\"><\/span><\/div><\/div><\/div><div class=\"item-card-caption\"><div class=\"item-card-name-link\"><div class=\"item-card-name\" title=\"Pink Jeans\">Pink Jeans<\/div><\/div><div class=\"text-overflow item-card-price font-header-2 text-subheader\"><span class=\"text text-label text-robux-tile\">Off Sale<\/span><\/div><\/div><\/a><\/div><\/div><\/div><\/div>";
+    function isFemale(acc) { return String((acc && (acc.selectedCharacter || acc.character)) || '').toLowerCase() === 'female'; }
+    function applyWearing() {
+        // the Currently Wearing row follows the profile owner's character (female -> Woman items)
+        if (!isFemale(subject())) return;
+        var row = document.querySelector('#profile-details .css-1i465w8-carousel');
+        if (row) row.innerHTML = FEMALE_WEARING;
+    }
+    var PLUS_ICON = '<span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-roblox-plus size-[var(--icon-size-large)] relative rbxtest-plus" style="top:-1px;margin-left:4px;flex:none;cursor:pointer;"></span>';
+    // Online / Offline text under the @handle; the verified check on the FigureBlox account shows only while it is online
+    function paintStatus(on) {
+        var acc = subject();
+        if (!acc) return;
+        var handle = document.querySelector('#profile-area [data-rbx-handle], #profile-area [data-view-handle]');
+        if (handle) {
+            var host = handle.parentElement, t = host.querySelector('.rbxtest-presence-text');
+            if (!t) { t = document.createElement('div'); t.className = 'rbxtest-presence-text text-body-small'; t.style.cssText = 'display:flex;align-items:center;margin-top:2px;opacity:.85;'; host.appendChild(t); }
+            var html = '<span style="display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;background:' + (on ? '#00b06f' : '#8a8d94') + ';"></span>' + (on ? 'Online' : 'Offline');
+            if (t.innerHTML !== html) t.innerHTML = html;
+        }
+        if (!viewed) return;   // on your own profile shell.js already places the badge and Plus icon
+        var nameEl = document.querySelector('#profile-area [data-view-name]');
+        if (!nameEl) return;
+        var badge = nameEl.parentElement.querySelector('.rbxtest-verified');
+        var want = !!(window.rbxShell && rbxShell.isVerified(viewed) && on);
+        if (want && !badge) nameEl.insertAdjacentHTML('afterend', rbxShell.verifiedHTML);
+        if (!want && badge) badge.remove();
+        if (!nameEl.parentElement.querySelector('.rbxtest-plus')) nameEl.parentElement.insertAdjacentHTML('beforeend', PLUS_ICON);
+    }
+    function prepareViewMode() {
+        // detach this page's name / @handle from the logged-in account (shell.js would overwrite them) and hide edit controls
+        document.querySelectorAll('#container-main [data-rbx-username]').forEach(function (n) { n.removeAttribute('data-rbx-username'); n.setAttribute('data-view-name', ''); });
+        document.querySelectorAll('#container-main [data-rbx-handle]').forEach(function (n) { n.removeAttribute('data-rbx-handle'); n.setAttribute('data-view-handle', ''); });
+        document.querySelectorAll('#user-profile-header-EditAvatar, #user-profile-header-EditProfile, #user-profile-header-EditAvatar-mobile, #user-profile-header-EditProfile-mobile, #about-dialog .edit-bio-btn').forEach(function (n) { n.hidden = true; n.style.display = 'none'; });
+        window.__rbxViewAccount = viewed;
+    }
+
+    function saveAccount(patch) {
+        var all = readJSON(localStorage, ACCOUNTS_KEY, {});
+        if (!all[userKey]) return;
+        Object.keys(patch).forEach(function (k) { all[userKey][k] = patch[k]; });
+        localStorage.setItem(ACCOUNTS_KEY, JSON.stringify(all));
+        current = all[userKey];
+    }
+    function displayName(acc) { return (acc && acc.displayName) || (acc && acc.username) || ''; }
+
+    // Join date = the moment the account was created at signup (account.created, an ISO timestamp)
+    function formatJoinDate(account) {
+        var d = account && account.created ? new Date(account.created) : new Date();
+        if (isNaN(d.getTime())) d = new Date();
+        return (d.getMonth() + 1) + '/' + d.getDate() + '/' + d.getFullYear();
+    }
+
+    // Frames: set `png` to the image path once the PNGs exist (e.g. 'frames/gold.png').
+    // While png is null the Change button shows "Coming soon" and nothing is saved.
+    var FRAMES = [
+        { id: 'none', label: 'None', png: null },
+        { id: 'frame-1', label: 'Frame 1', png: null },
+        { id: 'frame-2', label: 'Frame 2', png: null },
+        { id: 'frame-3', label: 'Frame 3', png: null },
+        { id: 'frame-4', label: 'Frame 4', png: null }
+    ];
+    function frameById(id) { return FRAMES.filter(function (f) { return f.id === id; })[0] || FRAMES[0]; }
+
+    function renderProfile() {
+        var acc = subject();
+        var name = displayName(acc);
+        document.title = name + ' - FigureBlox';
+        var meta = document.querySelector('meta[name="user-data"]');
+        if (meta && !viewed) { meta.setAttribute('data-name', acc.username); meta.setAttribute('data-displayName', name); }
+        document.querySelectorAll(viewed ? '[data-view-name]' : '[data-rbx-username]').forEach(function (el) { el.textContent = name; });
+        document.querySelectorAll(viewed ? '[data-view-handle]' : '[data-rbx-handle]').forEach(function (el) { el.textContent = '@' + acc.username; });
+        var bio = (acc.bio || '').trim() || 'No bio yet';   // shown on the profile for anyone who opens it
+        document.querySelectorAll('[data-profile-about], #profile-area .description-content').forEach(function (el) { el.textContent = bio; });
+        document.querySelectorAll('[data-rbx-joindate]').forEach(function (el) { el.textContent = formatJoinDate(acc); });
+        var fc = ((acc.friends || []).length);
+        document.querySelectorAll('#profile-area span').forEach(function (n) {
+            if (!n.children.length && /^\d+ Friends?$/.test(n.textContent.trim())) n.textContent = fc + (fc === 1 ? ' Friend' : ' Friends');
+        });
+        applyFrame();
+    }
+    function applyFrame() {
+        document.querySelectorAll('.rbxtest-frame-overlay').forEach(function (n) { n.remove(); });
+        var f = frameById(subject() && subject().frame);
+        if (!f.png) return;
+        document.querySelectorAll('#profile-area .avatar-card-fullbody, #edit-user-profile-web-app .width-2400.height-2400').forEach(function (host) {
+            var img = document.createElement('img');
+            img.className = 'rbxtest-frame-overlay'; img.src = f.png; img.alt = '';
+            host.appendChild(img);
+        });
+    }
+
+    // ---------- Small modal toolkit (reuses the About dialog's look) ----------
+    var BLUE = '#335fff', GREY = '#8a8d94';
+    function el(tag, cls, text) {
+        var n = document.createElement(tag);
+        if (cls) n.className = cls;
+        if (text !== undefined) n.textContent = text;
+        return n;
+    }
+    function actionButton(label) {
+        var b = el('button', '', label);
+        b.type = 'button';
+        b.style.cssText = 'min-width:104px;height:40px;padding:0 16px;border:0;border-radius:8px;color:#fff;font:inherit;font-weight:600;';
+        setEnabled(b, true);
+        return b;
+    }
+    function setEnabled(b, on) {
+        b.disabled = !on;
+        b.style.background = on ? BLUE : GREY;
+        b.style.cursor = on ? 'pointer' : 'not-allowed';
+    }
+    function openModal(title) {
+        var opener = document.activeElement;
+        var overlay = el('div', 'rbxtest-dialog-overlay');
+        overlay.style.zIndex = '100001';
+        var box = el('div', 'rbxtest-dialog');
+        box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true'); box.setAttribute('aria-label', title);
+        var x = el('button', 'rbxtest-dialog-close'); x.type = 'button'; x.setAttribute('aria-label', 'Close'); x.innerHTML = '&times;';
+        var body = el('div', 'flex flex-col');
+        body.style.cssText = 'display:flex;flex-direction:column;gap:16px;padding:24px;';
+        body.appendChild(el('h2', 'text-heading-small', title));
+        box.appendChild(x); box.appendChild(body); overlay.appendChild(box);
+        document.body.appendChild(overlay);
+        document.body.style.overflow = 'hidden';
+        function close() {
+            document.removeEventListener('keydown', onKey, true);
+            overlay.remove();
+            if (document.getElementById('about-dialog').hidden) document.body.style.overflow = '';
+            if (opener && opener.focus && document.contains(opener)) opener.focus();
+        }
+        function onKey(e) { if (e.key === 'Escape') { e.stopPropagation(); close(); } }
+        document.addEventListener('keydown', onKey, true);
+        x.addEventListener('click', close);
+        overlay.addEventListener('mousedown', function (e) { if (e.target === overlay) close(); });
+        return { body: body, close: close };
+    }
+
+    // Change Bio: whatever is typed and saved shows on the profile page
+    function openBioModal() {
+        var m = openModal('Change Bio');
+        m.body.appendChild(el('p', 'text-body-medium', 'Let others know more about you. Keep yourself safe, do not share personal details.'));
+        var ta = el('textarea', 'foundation-web-text-area foundation-web-input outline-none radius-medium');
+        ta.rows = 6; ta.maxLength = 1000; ta.placeholder = 'Enter your description...'; ta.value = (current.bio || '');
+        ta.style.cssText = 'width:100%;box-sizing:border-box;padding:8px 12px;border:1px solid rgba(128,128,128,.5);border-radius:8px;background:transparent;color:inherit;font:inherit;resize:vertical;';
+        var count = el('span', 'text-caption-medium', ta.value.length + '/1000');
+        var countRow = el('div'); countRow.style.cssText = 'display:flex;justify-content:flex-end;margin-top:-8px;';
+        countRow.appendChild(count);
+        var save = actionButton('Save');
+        ta.addEventListener('input', function () { count.textContent = ta.value.length + '/1000'; });
+        save.addEventListener('click', function () {
+            saveAccount({ bio: ta.value.trim() });
+            renderProfile();
+            m.close();
+        });
+        m.body.appendChild(ta); m.body.appendChild(countRow); m.body.appendChild(save);
+        ta.focus();
+    }
+
+    // Change Name (display name): one change every 7 days
+    var NAME_COOLDOWN = 7 * 24 * 60 * 60 * 1000;
+    function nameCooldownDays() {
+        var at = current && current.displayNameChangedAt;
+        if (!at) return 0;
+        var left = at + NAME_COOLDOWN - Date.now();
+        return left > 0 ? Math.ceil(left / (24 * 60 * 60 * 1000)) : 0;
+    }
+    function openNameModal() {
+        var m = openModal('Change Name');
+        m.body.appendChild(el('p', 'text-body-medium content-sub', 'Important: Your display name can only be changed once every 7 days'));
+        var field = el('div');
+        field.style.cssText = 'display:flex;align-items:center;gap:8px;height:40px;padding:0 8px 0 12px;border:1px solid rgba(128,128,128,.5);border-radius:8px;';
+        var input = el('input'); input.type = 'text'; input.maxLength = 20;
+        input.value = displayName(current); input.placeholder = displayName(current);
+        input.style.cssText = 'flex:1;min-width:0;background:none;border:0;outline:0;color:inherit;font:inherit;';
+        var clear = el('button', '', '×'); clear.type = 'button'; clear.setAttribute('aria-label', 'Clear text');
+        clear.style.cssText = 'background:none;border:0;color:inherit;font-size:20px;line-height:1;cursor:pointer;padding:0 4px;';
+        field.appendChild(input); field.appendChild(clear);
+        var err = el('span', 'text-alert'); err.style.color = '#d93025';
+        var count = el('span', 'text-caption-small content-sub');
+        var foot = el('div'); foot.style.cssText = 'display:flex;justify-content:space-between;gap:12px;margin-top:-8px;';
+        foot.appendChild(err); foot.appendChild(count);
+        var save = actionButton('Save');
+        function sync() {
+            var v = input.value.trim(), days = nameCooldownDays();
+            count.textContent = input.value.length + '/20';
+            input.disabled = clear.disabled = days > 0;
+            err.textContent = days > 0 ? 'You can change your display name again in ' + days + (days === 1 ? ' day.' : ' days.') : '';
+            setEnabled(save, days === 0 && v.length > 0 && v !== displayName(current));
+        }
+        input.addEventListener('input', sync);
+        clear.addEventListener('click', function () { input.value = ''; sync(); input.focus(); });
+        input.addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); save.click(); } });
+        save.addEventListener('click', function () {
+            if (save.disabled) return;
+            saveAccount({ displayName: input.value.trim(), displayNameChangedAt: Date.now() });
+            renderProfile();
+            m.close();
+        });
+        m.body.appendChild(field); m.body.appendChild(foot); m.body.appendChild(save);
+        sync();
+        if (!input.disabled) { input.focus(); input.select(); }
+    }
+
+    // Profile frame: pick one; the Change button is grey until the pick differs from the saved frame, then blue.
+    // Frames have no PNGs yet, so Change says "Coming soon".
+    function openFrameModal() {
+        var m = openModal('Profile frame');
+        var picked = frameById(current.frame).id;
+        var grid = el('div'); grid.style.cssText = 'display:flex;flex-wrap:wrap;gap:12px;';
+        var tiles = FRAMES.map(function (f) {
+            var t = el('button', 'rbxtest-frame-tile'); t.type = 'button';
+            var thumb = el('div', 'rbxtest-frame-thumb', f.id === 'none' ? '⊘' : '');
+            t.appendChild(thumb); t.appendChild(el('span', 'text-body-medium', f.label));
+            t.addEventListener('click', function () { picked = f.id; sync(); });
+            grid.appendChild(t);
+            return t;
+        });
+        var bar = el('div', 'radius-medium stroke-standard stroke-default flex items-center justify-between');
+        bar.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:10px 20px;border:1px solid rgba(128,128,128,.4);border-radius:8px;';
+        var label = el('span', 'content-emphasis text-body-medium');
+        var change = actionButton('Change');
+        bar.appendChild(label); bar.appendChild(change);
+        var status = el('p', 'text-body-medium content-sub'); status.setAttribute('role', 'status');
+        function sync() {
+            tiles.forEach(function (t, i) { t.setAttribute('aria-pressed', String(FRAMES[i].id === picked)); });
+            label.textContent = 'Selected: ' + frameById(picked).label;
+            setEnabled(change, picked !== frameById(current.frame).id);
+            status.textContent = '';
+        }
+        change.addEventListener('click', function () {
+            if (change.disabled) return;
+            var f = frameById(picked);
+            if (!f.png) { status.textContent = 'Coming soon'; return; }
+            saveAccount({ frame: f.id });
+            renderProfile();
+            m.close();
+        });
+        m.body.appendChild(grid); m.body.appendChild(bar); m.body.appendChild(status);
+        sync();
+    }
+
+    // "..." menu next to Edit profile. Your own profile shows Inventory and Favorites;
+    // other people's profiles show the longer list (no other profile pages exist yet, so only isOwn=true is used).
+    var MENU_CLS = 'relative clip group/interactable focus-visible:outline-focus disabled:outline-none foundation-web-menu-item flex items-center content-default text-truncate-split focus-visible:hover:outline-none cursor-pointer stroke-none bg-none text-align-x-left width-full text-body-medium padding-x-medium padding-y-small gap-x-medium radius-medium';
+    function menuItem(label, href) {
+        var n = el(href ? 'a' : 'button', MENU_CLS);
+        if (href) { n.href = href; n.target = '_blank'; n.rel = 'noreferrer'; } else n.type = 'button';
+        n.setAttribute('role', 'menuitem');
+        n.style.cssText = 'display:flex;align-items:center;width:100%;box-sizing:border-box;padding:8px 12px;border:0;background:none;color:inherit;font:inherit;text-align:left;text-decoration:none;cursor:pointer;border-radius:8px;';
+        n.appendChild(el('span', 'foundation-web-menu-item-title text-no-wrap text-truncate-split content-emphasis', label));
+        n.addEventListener('mouseenter', function () { n.style.background = 'rgba(128,128,128,.18)'; });
+        n.addEventListener('mouseleave', function () { n.style.background = 'none'; });
+        return n;
+    }
+    function buildMenu(isOwn) {
+        var menu = el('div', 'foundation-web-menu bg-surface-100 stroke-standard stroke-default shadow-transient-high radius-large');
+        menu.setAttribute('role', 'menu');
+        menu.style.cssText = 'position:fixed;z-index:100002;min-width:180px;padding:6px;border:1px solid rgba(128,128,128,.4);border-radius:12px;background:var(--color-surface-0,#fff);color:var(--color-content-default,inherit);box-shadow:0 8px 24px rgba(0,0,0,.25);';
+        var group = el('div', 'padding-small'); group.setAttribute('role', 'group');
+        var soon = function () { rbxShell.toast('Coming soon'); menu.remove(); };
+        var items = isOwn
+            ? [menuItem('Inventory', 'https://www.roblox.com/users/inventory'), menuItem('Favorites', 'https://www.roblox.com/users/favorites')]
+            : ['Send Robux', 'Follow', 'Add trusted friend', 'Trade items', 'Inventory', 'Favorites', 'Block user', 'Report abuse'].map(function (l) {
+                var b = menuItem(l); b.addEventListener('click', soon); return b;
+            });
+        items.forEach(function (i) { group.appendChild(i); });
+        menu.appendChild(group);
+        return menu;
+    }
+    function setupMoreMenu() {
+        var open = null;
+        function close() { if (open) { open.menu.remove(); open.btn.setAttribute('aria-expanded', 'false'); open = null; } }
+        document.addEventListener('click', function (e) {
+            var btn = e.target.closest && e.target.closest('#profile-area button[aria-label="Open contextual menu"]');
+            if (!btn) { if (!(e.target.closest && e.target.closest('[role="menu"]'))) close(); return; }
+            var same = open && open.btn === btn;
+            close();
+            if (same) return;
+            var menu = buildMenu(!viewed);
+            document.body.appendChild(menu);
+            var r = btn.getBoundingClientRect();
+            menu.style.top = (r.bottom + 6) + 'px';
+            menu.style.left = Math.max(8, Math.min(r.right - menu.offsetWidth, window.innerWidth - menu.offsetWidth - 8)) + 'px';
+            btn.setAttribute('aria-expanded', 'true');
+            open = { menu: menu, btn: btn };
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+        window.addEventListener('resize', close);
+        window.addEventListener('scroll', close, true);
+    }
+
+    // Edit profile rows: Name, About, Profile frame open their dialogs; Username and Edit avatar say "Coming soon".
+    function setupEditModals() {
+        var soon = function () { if (window.rbxShell) rbxShell.toast('Coming soon'); };
+        var handlers = { 'Name': openNameModal, 'About': openBioModal, 'Profile frame': openFrameModal, 'Username': soon, 'Edit avatar': soon };
+        document.querySelectorAll('#edit-user-profile-web-app li > button').forEach(function (btn) {
+            var t = btn.querySelector('.text-title-large');
+            var fn = t && handlers[t.textContent.trim()];
+            if (fn) btn.addEventListener('click', function (e) { e.preventDefault(); fn(); });
+        });
+        var editBio = document.querySelector('#about-dialog .edit-bio-btn');
+        if (editBio) editBio.addEventListener('click', openBioModal);
+    }
+
+    // "more" under the bio opens the About dialog (About, Social links, Previous names, Statistics)
+    function setupAboutDialog() {
+        var dlg = document.getElementById('about-dialog');
+        if (!dlg) return;
+        var lastFocus = null;
+        function open() {
+            lastFocus = document.activeElement;
+            dlg.hidden = false;
+            document.body.style.overflow = 'hidden';
+            var c = dlg.querySelector('.rbxtest-dialog-close');
+            if (c) c.focus();
+        }
+        function close() {
+            dlg.hidden = true;
+            document.body.style.overflow = '';
+            if (lastFocus && lastFocus.focus) lastFocus.focus();
+        }
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest) return;
+            if (e.target.closest('#profile-area .more-btn')) { e.preventDefault(); open(); return; }
+            if (!dlg.hidden && (e.target === dlg || e.target.closest('.rbxtest-dialog-close'))) close();
+        });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !dlg.hidden) close(); });
+    }
+
+    // "Edit profile" opens the edit-profile page (same page, #edit-profile); "Back to Profile" returns
+    function setupEditProfile() {
+        var edit = document.getElementById('edit-user-profile-web-app');
+        var prof = document.querySelector('.profile-platform-container');
+        if (!edit || !prof) return;
+        function render() {
+            var on = location.hash === '#edit-profile';
+            edit.hidden = !on;
+            prof.hidden = on;
+            if (on) window.scrollTo(0, 0);
+        }
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest) return;
+            if (e.target.closest('#user-profile-header-EditProfile, #user-profile-header-EditProfile-mobile')) {
+                e.preventDefault(); location.hash = 'edit-profile';
+            } else if (e.target.closest('#edit-profile-back')) {
+                e.preventDefault(); location.hash = 'profile';
+            }
+        });
+        window.addEventListener('hashchange', render);
+        render();
+    }
+
+    function run(account) {
+        // accounts created before join dates were stored get today's date saved once, so it stops changing
+        if (!account.created) saveAccount({ created: new Date().toISOString() });
+        if (viewed) prepareViewMode();
+        if (window.loadAccountAvatar) window.loadAccountAvatar(current);   // existing male/female avatar-selection logic
+        renderProfile();   // name, @handle, bio, join date, frame
+        applyWearing();
+        updatePresence();
+        setupTabs();
+        setupCarouselArrow();
+        setupAboutDialog();
+        if (!viewed) { setupEditProfile(); setupEditModals(); }
+        setupMoreMenu();
+        if (viewed) setInterval(updatePresence, 5000);
+    }
+
+    function init() {
+        var session = readSession();
+        var acc = session && readJSON(localStorage, ACCOUNTS_KEY, {})[session.username];
+        var fail = function () {
+            sessionStorage.removeItem(SESSION_KEY); localStorage.removeItem(SESSION_KEY);
+            window.location.replace('index.html');
+        };
+        if (!acc) return fail();
+        tokenHash(session.token).then(function (hash) {
+            if ((acc.tokenHashes || []).indexOf(hash) === -1) return fail();
+            userKey = session.username; current = acc;
+            var want = (new URLSearchParams(location.search).get('u') || '').toLowerCase();
+            if (want && want !== String(session.username).toLowerCase()) {
+                var all = readJSON(localStorage, ACCOUNTS_KEY, {});
+                Object.keys(all).forEach(function (k) { if (String(all[k].username).toLowerCase() === want) viewed = all[k]; });
+                // an unknown or banned player has no profile page: go to YOUR OWN profile (with Edit avatar / Edit profile)
+                if (!viewed || viewed.banned === true || /roblox/i.test(String(viewed.username || ''))) {
+                    window.location.replace('profileview.devtools' + (location.hash || ''));
+                    return;
+                }
+            }
+            document.documentElement.classList.remove('rbx-auth-pending');
+            if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', function () { run(acc); }); else run(acc);
+        }, fail);
+    }
+    init();
+})();
+</script>
+<style id="fb-brand">.fb-wordmark{display:inline-flex;align-items:center;font:800 26px/1 "Builder Sans","Gotham SSm",Arial,sans-serif;color:#fff;letter-spacing:-.5px;white-space:nowrap}.light-theme .fb-wordmark{color:#232527}#nav-logo-link{display:flex;align-items:center;height:100%}.header-icon-logo.fb-wordmark{width:auto;height:auto;background:none;font-size:30px}</style></head>
+<body id="rbx-body" dir="ltr" class="rbx-body age-roblox-theme builder-font light-theme" data-internal-page-name="Profile">
+<div id="wrap" class="wrap no-gutter-ads logged-in left-nav-new-width">
+<div id="navigation-container" class="builder-font">
+<div id="header" class="navbar-fixed-top rbx-header" role="navigation"><div class="container-fluid"><div class="rbx-navbar-header"><div class="navbar-header"><a id="nav-logo-link" class="navbar-brand" href="home.devtools"><span class="fb-wordmark" aria-label="FigureBlox">FigureBlox</span></a></div></div>
+<ul class="nav rbx-navbar hidden-xs hidden-sm col-md-5 col-lg-4"><li><a id="nav-charts-md-link" class="font-header-2 nav-menu-title text-header" href="home.devtools">Home</a></li><li><a id="nav-marketplace-md-link" class="font-header-2 nav-menu-title text-header" href="#">Marketplace</a></li><li><a id="header-develop-md-link" class="font-header-2 nav-menu-title text-header" href="#">Create</a></li><li><div><a href="#" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] font-header-2 nav-menu-title text-header robux-menu-btn">Robux</a></div></li></ul>
+<ul class="nav rbx-navbar hidden-md hidden-lg col-xs-12"><li><a id="nav-charts-sm-link" class="font-header-2 nav-menu-title text-header" href="home.devtools">Home</a></li><li><a id="nav-marketplace-sm-link" class="font-header-2 nav-menu-title text-header" href="#">Marketplace</a></li><li><a id="header-develop-sm-link" class="font-header-2 nav-menu-title text-header" href="#">Create</a></li><li><div><a href="#" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] font-header-2 nav-menu-title text-header robux-menu-btn">Robux</a></div></li></ul>
+<div id="right-navigation-header"><div class="navbar-right rbx-navbar-right"><ul class="[&>li]:relative navbar-right rbx-navbar-icon-group"><div class="age-bracket-label text-header"><a href="profileview.devtools" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] text-link dynamic-overflow-container"><span class="avatar avatar-headshot-xs"><span class="thumbnail-2d-container avatar-card-image"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt="d3gev"></span></span><span class="text-overflow age-bracket-label-username font-caption-header" data-rbx-username>d3gev</span></a></div></ul></div></div></div></div>
+<div id="left-navigation-container"><div class="left-nav fixed left-[0] [z-index:1001] bg-surface-0 motion-safe:[transition-property:transform,visibility] ease-standard-out duration-100 large:visible large:[transform:unset] invisible [transform:translateX(-100%)]"><div class="flex width-[289px] height-full scroll-y"><div class="width-[288px]"><div class="padding-x-large padding-y-medium flex flex-col gap-large"><nav><ul class="flex flex-col gap-small"><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span class="radius-circle clip size-600"><span class="thumbnail-2d-container avatar-card-image"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt="d3gev"></span></span></span><span class="flex flex-col gap-xsmall min-width-0 large:flex-row large:align-items-center"><span class="flex gap-xsmall min-width-0 align-items-center"><span class="text-truncate-end text-no-wrap" data-rbx-username>d3gev</span></span></span></a></li><li><a href="home.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-house size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Home</span></a></li><li><a href="profileview.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none bg-shift-200"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-person size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Profile</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-roblox-plus size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">FigureBlox Plus</span></a></li><li><a href="messages.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-speech-bubble-align-center size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Messages</span><span class="fill basis-auto padding-x-small flex justify-end items-center"><div class="foundation-web-badge flex items-center select-none gap-[var(--size-150)] radius-circle height-600 width-[fit-content] padding-x-small bg-system-contrast content-inverse-emphasis stroke-none"><span class="text-no-wrap text-truncate-split text-label-small padding-y-xsmall padding-x-xxsmall content-inverse-emphasis">1</span></div></span></a></li><li><a href="friends.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-two-people size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Friends</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-person-standing size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Avatar</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-backpack size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Inventory</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-hand-two-arrows-horizontal size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Trade</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-three-people size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Communities</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-fountain-pen-nib size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Newsroom</span></a></li><li><button type="button" class="bg-none width-full stroke-none content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-building-store size-[var(--icon-size-large)]"></span></span><span>Official Store</span></button></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-gift-card size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Buy Gift Cards</span></a></li></ul></nav></div></div><div role="separator" data-orientation="vertical" aria-orientation="vertical" class="stroke-default self-stretch" style="border-right-width: 0px; border-bottom-width: 0px; box-sizing: border-box; border-style: solid; height: 100%; width: 0px; border-left-width: var(--stroke-standard); border-top-width: 0px;"></div></div></div></div>
+</div>
+<main class="container-main content-no-ads" id="container-main" tabindex="-1">
+<div class="content" id="content">
+<div id="edit-user-profile-web-app" hidden><div class="min-height-full bg-surface-sunken-0 padding-xlarge"><div class="sg-system-feedback"><div class="alert-system-feedback"><div class="alert"><span class="alert-content"></span></div></div></div><div class="max-width-[970px] margin-x-auto"><div class="inline-block"><a id="edit-profile-back" aria-disabled="false" href="#profile" class="foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-subtle content-action-standard" style="text-decoration: none;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="flex items-center min-width-0 gap-small"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-filled-arrow-wide-short-left size-[var(--icon-size-medium)]"></span><span class="padding-y-xsmall text-truncate-end text-no-wrap">Back to Profile</span></span></a></div><div class="flex justify-center padding-bottom-xlarge"><div class="width-2400 height-2400 radius-circle" style="position: relative; overflow: hidden;"><div class="width-2400 height-2400 radius-circle overflow-hidden bg-surface-sunken-0"><span class="thumbnail-2d-container avatar-card-image width-full height-full radius-circle"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt=""></span></div></div></div><div class="flex flex-col gap-medium"><ul class="foundation-web-list width-full bg-shift-100 flex flex-col radius-large clip"><li style="list-style: none;"><button type="button" class="bg-none width-full flex gap-medium stroke-none foundation-web-list-item padding-y-none padding-x-medium foundation-web-list-item-bottom-divider relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer profile-setting-row"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><div class="flex fill clip-x padding-y-large gap-x-medium relative "><div class="flex flex-col fill clip-x justify-center"><div class="content-emphasis text-align-x-start text-title-large">Name</div></div><div class="flex flex-col justify-center"><div class="flex items-center gap-small min-width-0"><span class="text-body-medium profile-setting-row-value" data-rbx-username>d3gev</span><span aria-hidden="true" data-testid="profile-setting-row-chevron" class="grow-0 shrink-0 basis-auto icon icon-regular-chevron-large-right size-[var(--icon-size-small)] shrink-0"></span></div></div></div></button></li><li style="list-style: none;"><button type="button" class="bg-none width-full flex gap-medium stroke-none foundation-web-list-item padding-y-none padding-x-medium foundation-web-list-item-bottom-divider relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer profile-setting-row"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><div class="flex fill clip-x padding-y-large gap-x-medium relative "><div class="flex flex-col fill clip-x justify-center"><div class="content-emphasis text-align-x-start text-title-large">Username</div></div><div class="flex flex-col justify-center"><div class="flex items-center gap-small min-width-0"><span class="text-body-medium profile-setting-row-value" data-rbx-handle>@d3gev</span><span aria-hidden="true" data-testid="profile-setting-row-chevron" class="grow-0 shrink-0 basis-auto icon icon-regular-chevron-large-right size-[var(--icon-size-small)] shrink-0"></span></div></div></div></button></li><li style="list-style: none;"><button type="button" class="bg-none width-full flex gap-medium stroke-none foundation-web-list-item padding-y-none padding-x-medium foundation-web-list-item-bottom-divider relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer profile-setting-row"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><div class="flex fill clip-x padding-y-large gap-x-medium relative "><div class="flex flex-col fill clip-x justify-center"><div class="content-emphasis text-align-x-start text-title-large">About</div></div><div class="flex flex-col justify-center"><div class="flex items-center gap-small min-width-0"><span class="text-body-medium profile-setting-row-value" data-profile-about>No bio yet</span><span aria-hidden="true" data-testid="profile-setting-row-chevron" class="grow-0 shrink-0 basis-auto icon icon-regular-chevron-large-right size-[var(--icon-size-small)] shrink-0"></span></div></div></div></button></li><li style="list-style: none;"><button type="button" class="bg-none width-full flex gap-medium stroke-none foundation-web-list-item padding-y-none padding-x-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer profile-setting-row"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><div class="flex fill clip-x padding-y-large gap-x-medium relative "><div class="flex flex-col fill clip-x justify-center"><div class="content-emphasis text-align-x-start text-title-large">Edit avatar</div></div><div class="flex flex-col justify-center"><div class="flex items-center gap-small min-width-0"><span class="text-body-medium profile-setting-row-value"></span><span aria-hidden="true" data-testid="profile-setting-row-chevron" class="grow-0 shrink-0 basis-auto icon icon-regular-chevron-large-right size-[var(--icon-size-small)] shrink-0"></span></div></div></div></button></li></ul><ul class="foundation-web-list width-full bg-shift-100 flex flex-col radius-large clip"><li style="list-style: none;"><button type="button" class="bg-none width-full flex gap-medium stroke-none foundation-web-list-item padding-y-none padding-x-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><div class="flex fill clip-x padding-y-large gap-x-medium relative "><div class="flex flex-col fill clip-x justify-center"><div class="content-emphasis text-align-x-start text-title-large">Profile frame</div></div><div class="flex flex-col justify-center"><div class="gap-small min-width-0 flex items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-circle-slash size-[var(--icon-size-medium)] content-default"></span><span aria-hidden="true" data-testid="profile-frame-list-item-chevron" class="grow-0 shrink-0 basis-auto icon icon-regular-chevron-large-right size-[var(--icon-size-small)] shrink-0"></span></div></div></div></button></li></ul></div></div></div></div>
+<div class="profile-platform-container" data-profile-type="User" data-profile-id="11765165303"><div>
+<div class="relative currently-wearing-avatar-with-background"><div class="profile-avatar-left profile-avatar-background-empty-state" style="--empty-state-image-light: url(&quot;https://assetdelivery.roblox.com/v1/asset/?id=97634835410357&quot;); --empty-state-image-dark: url(&quot;https://assetdelivery.roblox.com/v1/asset/?id=76787651008882&quot;);"><div class="thumbnail-holder thumbnail-holder-position"><div class="avatar-thumbnail-container"><span class="thumbnail-2d-container no-background-thumbnail thumbnail-span"><img class="" src="https://tr.rbxcdn.com/30DAY-Avatar-EF723055A3F0324529727534E42B611A-Png/720/720/Avatar/Webp/noFilter" alt=""></span></div></div></div></div>
+<div class="profile-header-overlay"><div id="user-profile-header-bg"><div class="user-profile-header flex flex-col gap-large" id="profile-area">
+<div class="user-profile-header-info flex justify-between items-center">
+<div id="profile-header-main" class="profile-header-main flex gap-medium items-center min-width-0"><div class="user-profile-header-details-avatar-container avatar-headshot-lg"><div class="avatar avatar-card-fullbody" data-testid="avatar-card-container"><span class="thumbnail-2d-container avatar-card-image"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt="d3gev"></span><div class="avatar-status" hidden><span data-testid="presence-icon" title="Website" class="online icon-online"></span></div></div></div><div class="flex flex-col min-width-0"><span class="items-center gap-xsmall flex min-width-0"><span id="profile-header-title-container-name" class="text-heading-large min-width-0 text-truncate-end text-no-wrap" data-rbx-username>d3gev</span></span><div><span class="stylistic-alts-username" data-rbx-handle>@d3gev</span></div></div></div>
+<div class="flex flex-col gap-small buttons-show-on-desktop"><div class="flex gap-small"><div class="button-container flex gap-small"><a id="user-profile-header-EditAvatar" href="#" class="foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-standard content-action-standard" style="text-decoration: none; width: 100%;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="flex items-center min-width-0 gap-small"><span class="padding-y-xsmall text-truncate-end text-no-wrap">Edit avatar</span></span></a><a id="user-profile-header-EditProfile" href="#" class="foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-standard content-action-standard" style="text-decoration: none; width: 100%;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="flex items-center min-width-0 gap-small"><span class="padding-y-xsmall text-truncate-end text-no-wrap">Edit profile</span></span></a></div><div><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open contextual menu" class="foundation-web-icon-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center padding-none stroke-none select-none size-1000 radius-medium bg-action-standard"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="icon icon-filled-three-dots-horizontal size-600 content-action-standard"></span></button></div></div></div></div>
+<div class="flex-nowrap gap-small flex"><a aria-disabled="true" class="opacity-[0.5] relative flex justify-center items-center radius-circle stroke-none padding-left-medium padding-right-medium height-800 text-label-medium bg-shift-300 content-action-utility" style="text-decoration: none;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="padding-y-xsmall text-no-wrap text-truncate-end">0 Friends</span></a><a aria-disabled="true" class="opacity-[0.5] relative flex justify-center items-center radius-circle stroke-none padding-left-medium padding-right-medium height-800 text-label-medium bg-shift-300 content-action-utility" style="text-decoration: none;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="padding-y-xsmall text-no-wrap text-truncate-end">0 Followers</span></a><a aria-disabled="true" class="opacity-[0.5] relative flex justify-center items-center radius-circle stroke-none padding-left-medium padding-right-medium height-800 text-label-medium bg-shift-300 content-action-utility" style="text-decoration: none;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="padding-y-xsmall text-no-wrap text-truncate-end">0 Following</span></a></div>
+<div><pre class="content-default text-body-medium text-overflow-2-lines description-content">No bio yet</pre><button type="button" aria-label="more" class="text-body-medium more-btn content-default">more</button></div>
+<div class="flex flex-col gap-small buttons-show-on-mobile"><div class="flex gap-small"><div class="button-container flex gap-small"><a id="user-profile-header-EditAvatar-mobile" href="#" class="foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-standard content-action-standard" style="text-decoration: none; width: 100%;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="flex items-center min-width-0 gap-small"><span class="padding-y-xsmall text-truncate-end text-no-wrap">Edit avatar</span></span></a><a id="user-profile-header-EditProfile-mobile" href="#" class="foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-standard content-action-standard" style="text-decoration: none; width: 100%;"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="flex items-center min-width-0 gap-small"><span class="padding-y-xsmall text-truncate-end text-no-wrap">Edit profile</span></span></a></div><div><button type="button" aria-haspopup="dialog" aria-expanded="false" aria-label="Open contextual menu" class="foundation-web-icon-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center padding-none stroke-none select-none size-1000 radius-medium bg-action-standard"><div aria-hidden="true" data-testid="foundation-web-state-layer" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="icon icon-filled-three-dots-horizontal size-600 content-action-standard"></span></button></div></div></div>
+</div></div></div>
+<div id="profile-details"><ul class="profile-tabs flex"><li class="justify-center flex fill"><a id="tab-about" href="#about" class="profile-tab active justify-center text-label-medium padding-bottom-xlarge padding-top-medium flex fill">About</a></li><li class="justify-center flex fill"><a id="tab-creations" href="#creations" class="profile-tab  justify-center text-label-medium padding-bottom-xlarge padding-top-medium flex fill">Creations</a></li></ul>
+<div id="about" class="profile-tab-content  padding-top-xxlarge" data-tab-pane="about"><div class="profile-currently-wearing"><div class="profile-carousel"><div class="css-17g81zd-collectionCarouselContainer"><h2 class="content-emphasis text-heading-small padding-none inline-block">Currently Wearing</h2><div class="css-1jynqc0-carouselContainer"><div class="css-1i465w8-carousel"><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-75f515a5e5b4339f149381f1f8ea9f05/150/150/Torso/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Man Torso">Man Torso</div></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-2d39121417a01dc06b1e74d9f9d195eb/150/150/RightArm/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Man Right Arm">Man Right Arm</div></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-d7dbfdbb043cdd1fcd8633f8b043c877/150/150/LeftArm/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Man Left Arm">Man Left Arm</div></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-14d10e3cb278bbdd42f7e7f8eeaf701d/150/150/LeftLeg/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Man Left Leg">Man Left Leg</div></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-e85935f025bc03cb88fcfc8e0958a55e/150/150/RightLeg/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Man Right Leg">Man Right Leg</div></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/30DAY-DynamicHeadCostume-DEDA5A3711A759312A2AE54E64C90182-Png/150/150/DynamicHeadCostume/Webp/noFilter" alt=""></span></div><span class="restriction-icon "></span></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Stevie Standard">Stevie Standard</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-9584b86683630361b51f29117503044f/150/150/HairAccessory/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Pal Hair">Pal Hair</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-a363b433a6b1ca1717f38c2c83e92738/150/150/Shirt/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Blue and Black Motorcycle Shirt">Blue and Black Motorcycle Shirt</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-271360eb1523e4c8cb9ae56fadd7a354/150/150/Pants/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Dark Green Jeans">Dark Green Jeans</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-a09e4983bbb794987fe4d17d99229775/150/150/EmoteAnimation/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Hello">Hello</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-b8b896eea07b9ff60e33bd4af613c771/150/150/EmoteAnimation/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Stadium">Stadium</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-c08b49e1ae6e6709459a9edd567f6bb1/150/150/EmoteAnimation/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Point2">Point2</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div><div id="collection-carousel-item" class="css-6xn1qo-carouselItem"><div><div class="item-card  profile-item-card"><div class="item-card-container"><a href="#" target="_self" class="item-card-link"><div class="item-card-link"><div class="item-card-thumb-container"><div class="item-card-thumb-container-inner"><span class="thumbnail-2d-container"><img class="" src="https://tr.rbxcdn.com/180DAY-050161df3093d40334da37d0af822ad5/150/150/EmoteAnimation/Webp/noFilter" alt=""></span></div></div></div><div class="item-card-caption"><div class="item-card-name-link"><div class="item-card-name" title="Shrug">Shrug</div></div><div class="text-overflow item-card-price font-header-2 text-subheader"><span class="text text-label text-robux-tile">Free</span></div></div></a></div></div></div></div></div><div data-testid="carousel-scroll-arrow" class="scroll-arrow next" role="button" tabindex="0"><span class="icon-chevron-heavy-right" data-testid="carousel-scroll-arrow-icon"></span></div></div></div></div><div class="friends-carousel-0-friends"></div></div>
+<div id="creations" class="profile-tab-content hidden padding-top-xxlarge" data-tab-pane="creations" hidden><p class="profile-empty text-body-medium content-default">No creations yet</p></div></div>
+</div>
+</div></div>
+</div>
+<div id="about-dialog" class="rbxtest-dialog-overlay" hidden><div class="rbxtest-dialog" role="dialog" aria-modal="true" aria-labelledby="radix-10"><button type="button" class="rbxtest-dialog-close" aria-label="Close">&times;</button><div class="padding-x-xlarge padding-top-xlarge padding-bottom-xlarge gap-xxlarge flex flex-col"><span style="position: absolute; border: 0px; width: 1px; height: 1px; padding: 0px; margin: -1px; overflow: hidden; clip: rect(0px, 0px, 0px, 0px); white-space: nowrap; overflow-wrap: normal;"><h2 id="radix-10">About</h2></span><div class="gap-large flex flex-col"><span class="group-description-dialog-body-header text-heading-small block">About <span data-rbx-handle>@d3gev</span></span><div><div class="text-body-medium" data-profile-about>No bio yet</div><button type="button" class="text-body-medium edit-bio-btn content-default">Edit bio</button></div></div><div class="gap-small flex flex-col"><span class="group-description-dialog-body-header text-heading-small block">Social links</span><div class="text-body-medium">No social links yet</div></div><div class="gap-small flex flex-col"><span class="group-description-dialog-body-header text-heading-small block">Previous names</span><div class="text-body-medium">No previous names</div></div><div class="gap-small flex flex-col"><span class="group-description-dialog-body-header text-heading-small block">Statistics</span><div class="items-center gap-xsmall flex"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-filled-circle-i size-[var(--icon-size-xsmall)]"></span><span class="text-body-medium">Join Date <span data-rbx-joindate>10/4/2026</span></span></div></div></div></div></div>
+</main>
+<footer class="container-footer" id="footer-container"><div class="footer"><ul class="row footer-links flex flex-wrap justify-center padding-bottom-xxsmall"><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">About Us</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Jobs</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Newsroom</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Parents</a></li><li class="footer-link"><a href="#" class="text-footer-nav giftcards" target="_blank" rel="noreferrer">Buy Gift Cards</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Help</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Terms</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Accessibility</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Privacy</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Sitemap</a></li></ul><div class="row copyright-container flex items-center justify-between padding-top-xlarge gutter-x-small"><div class="col-sm-6 col-md-9"><p class="text-footer footer-note">©2026 FigureBlox Corporation. FigureBlox, the FigureBlox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.</p></div></div></div></footer>
+</div>
+<script id="rbxtest-profile-route">
+/* Routes every profile link (/users/profile or /users/<id>/profile, relative or on any host,
+   including the workers.dev address the page is served from) to the local profileview.devtools page. */
+(function () {
+    var TARGET = 'profileview.devtools';
+    function isProfile(a) {
+        var h = a.getAttribute && a.getAttribute('href');
+        if (!h || h === TARGET) return false;
+        var path;
+        try { path = new URL(h, window.location.href).pathname; } catch (e) { return false; }
+        return /^\/users\/(\d+\/)?profile\/?$/.test(path);
+    }
+    function patch(root) {
+        (root.querySelectorAll ? root.querySelectorAll('a[href*="/users/"]') : []).forEach(function (a) {
+            if (isProfile(a)) a.setAttribute('href', TARGET);
+        });
+    }
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || !isProfile(a)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.ctrlKey || e.metaKey || a.target === '_blank') window.open(TARGET, '_blank');
+        else window.location.href = TARGET;
+    }, true);
+    patch(document);
+    new MutationObserver(function () { patch(document); })
+        .observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<script id="rbxtest-build">
+/* Build stamp: open any page with ?build on the end (e.g. profileview.devtools?build) to see which version is being served. */
+(function () {
+    var BUILD = 'r9-2026-10-04';
+    try { console.log('FigureBlox build', BUILD); } catch (e) {}
+    if (!/[?&]build\b/.test(location.search)) return;
+    var b = document.createElement('div');
+    b.textContent = 'build ' + BUILD;
+    b.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#111;color:#0f0;font:12px monospace;padding:4px 8px;border-radius:4px;';
+    document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>

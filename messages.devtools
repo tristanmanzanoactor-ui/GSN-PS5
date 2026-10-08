@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Messages - FigureBlox</title>
+<meta name="robots" content="noindex, nofollow">
+<meta name="user-data" data-userid="11765165303" data-name="d3gev" data-displayname="d3gev">
+<link rel="stylesheet" data-bundlename="FoundationCss" href="https://css.rbxcdn.com/55280c7812e72016172462bfabdb6806238abfd0f279b87783e71ac52d440a72-FoundationCss.css">
+<link rel="stylesheet" data-bundlename="ReactStyleGuide" href="https://css.rbxcdn.com/cbc004c933c81fb07d6c57dd882001686ae4f26f1f13134ea1b138d7866af876-ReactStyleGuide.css">
+<link rel="stylesheet" data-bundlename="StyleGuide" href="https://css.rbxcdn.com/31c3f6ea601e985d7b74b97c40f5a8dec7f56b1e2cb56f24a8073878c09c54d4-StyleGuide.css">
+<link rel="stylesheet" data-bundlename="Builder" href="https://css.rbxcdn.com/835ad8483ecae12366bf4b80701ee78af7c5b58cdb95a529e061851cf7bc1c7f-Builder.css">
+<link rel="stylesheet" data-bundlename="Thumbnails" href="https://css.rbxcdn.com/523c59064ab61f06e8d52365e916d731063e2a67981bcf994376f68214f5f8e4-Thumbnails.css">
+<link rel="stylesheet" data-bundlename="SearchLandingPage" href="https://css.rbxcdn.com/3d2ed080fe3621c03204c3c02e30ecb20ddc28f45c8f1c38c1999e3b888b67d5-SearchLandingPage.css">
+<link rel="stylesheet" data-bundlename="RobuxIcon" href="https://css.rbxcdn.com/7dfc7837b5da6850e13413c630b37da7e88aeb610ca2c7d4e8b71b02cbdc6ba6.css">
+<link rel="stylesheet" data-bundlename="RobloxBadges" href="https://css.rbxcdn.com/b2cff71de0c286e8f85b1a26a8b87a8cd7f77422c592849ad5114ac5d929c575.css">
+<link rel="stylesheet" data-bundlename="Navigation" href="https://css.rbxcdn.com/0163ae5327c6b900779e89f08d6ac666dde20a79f256be71b7ce60253ded6b50-Navigation.css">
+<link rel="stylesheet" data-bundlename="CookieBannerV3" href="https://css.rbxcdn.com/5ecfbd9e9320d9cc9e7f87ae35c6aa2f79f9fa66f7c839eb4f0b4269a8227677-CookieBannerV3.css">
+<link rel="stylesheet" data-bundlename="Footer" href="https://css.rbxcdn.com/8b759c6280a056ed34d6d00ba7fa7abacfb3009b8e93e677416723b0c1056cad-Footer.css">
+<link rel="stylesheet" data-bundlename="FriendsCarousel" href="https://css.rbxcdn.com/3e77aa4c7a11c44d70d59835ca9faad3fa481f6b79bb61c8760a671af6951c3f-FriendsCarousel.css">
+<link rel="stylesheet" data-bundlename="UserDescription" href="https://css.rbxcdn.com/fdbc0173245f68440cbb311624eb6859d2e4024b89281763b7323e318a19c4c0.css">
+<link rel="stylesheet" data-bundlename="ProfileHeader" href="https://css.rbxcdn.com/2e9673d3e9b0a29541b0699c7a45666373f18c62933e1494f1ae2c334c72326c-ProfileHeader.css">
+<link rel="stylesheet" data-bundlename="CurrentWearing" href="https://css.rbxcdn.com/cc693776e7662b9afb39b185b252b4f5e8cfb19436bf079b0bc6e2e970112c9d.css">
+<link rel="stylesheet" data-bundlename="ProfileBadges" href="https://css.rbxcdn.com/12908c31c53f8fdfffbdea99689dfaddc1d2577a69d19c8bf86d6dda93d306f7.css">
+<link rel="stylesheet" data-bundlename="ProfilePlatform" href="https://css.rbxcdn.com/5e373ed6c9262199dd06ba7e7952a1aef9e642f8e168c0be8ca39674cbcce022-ProfilePlatform.css">
+<link rel="stylesheet" href="https://static.rbxcdn.com/css/leanbase___80400f5d6146e08bcf1e66a17ee0554e_m.css/fetch">
+<link rel="stylesheet" href="https://static.rbxcdn.com/css/page___44bfdb004cc328847073fece7276981f_m.css/fetch">
+<style id="rbxtest-profileview-styles">
+html.rbx-auth-pending body { visibility: hidden; }
+.profile-avatar { width: 100%; height: 100%; object-fit: cover; display: block; }
+[data-rbx-avatar] { display: block !important; position: relative !important; overflow: hidden !important; border-radius: inherit; background-image: none !important; }
+[data-rbx-avatar]::before, [data-rbx-avatar]::after { display: none !important; content: none !important; }
+[data-rbx-avatar] > img.profile-avatar { display: block !important; visibility: visible !important; opacity: 1 !important; width: 100% !important; height: 100% !important; max-width: none !important; object-fit: cover !important; position: relative; z-index: 1; }
+
+[hidden] { display: none !important; }
+/* Profile header is a normal (non-clickable) block; only its real links/buttons are interactive */
+#profile-area a, #profile-area button.more-btn, #profile-area .buttons-show-on-desktop button, #profile-area .buttons-show-on-mobile button { cursor: pointer; }
+.profile-header-main { flex: 1 1 auto; color: inherit; font: inherit; text-align: left; }
+/* About / Creations / Currently Wearing are always visible, stacked under the header */
+#profile-details { display: block; }
+#profile-details .profile-section { padding-top: 24px; }
+#profile-details .profile-section-title { margin: 0 0 12px; }
+#profile-details .profile-about-text { margin: 0; white-space: pre-wrap; font: inherit; }
+#profile-details .profile-empty { margin: 0; opacity: .7; }
+/* Presence (online) icon: FigureBlox's own .icon-online styling is used; this only keeps it on top of the avatar */
+.avatar-card-fullbody, .avatar-headshot-lg .avatar { position: relative; }
+.avatar-card-fullbody > .avatar-status { position: absolute; right: 0; bottom: 0; z-index: 5; line-height: 0; pointer-events: none; }
+/* only applied by script if FigureBlox's stylesheet did not load (icon would otherwise be invisible) */
+.avatar-status.presence-fallback [data-testid="presence-icon"] { display: block; width: 18px; height: 18px; box-sizing: border-box; border-radius: 50%; background: #00b06f; border: 3px solid var(--color-surface-0, #fff); }
+/* Profile details: About / Creations tabs (About is selected by default) */
+#profile-details, #profile-details[hidden] { display: block !important; visibility: visible !important; }
+#profile-details .profile-tabs { list-style: none; margin: 0; padding: 0; display: flex; border-bottom: 1px solid var(--color-divider, rgba(128,128,128,.4)); }
+#profile-details .profile-tabs li { flex: 1 1 0; display: flex; justify-content: center; }
+#profile-details .profile-tab { text-decoration: none; cursor: pointer; color: inherit; opacity: .75; }
+#profile-details .profile-tab.active { opacity: 1; font-weight: 700; box-shadow: inset 0 -2px 0 currentColor; }
+#profile-details .profile-tab-content[hidden] { display: none !important; }
+#profile-details .profile-empty { margin: 0; opacity: .7; }
+.css-1jynqc0-carouselContainer { position: relative; }
+.css-1i465w8-carousel { scroll-behavior: smooth; }
+.scroll-arrow { position: absolute; top: 50%; right: 0; transform: translateY(-50%); cursor: pointer; z-index: 3; }
+.scroll-arrow[hidden] { display: none !important; }
+.scroll-arrow.arrow-fallback { width: 36px; height: 36px; border-radius: 50%; background: rgba(40,40,40,.85); color: #fff; display: flex; align-items: center; justify-content: center; }
+.scroll-arrow.arrow-fallback .icon-chevron-heavy-right::before { content: "\203A"; font-size: 26px; line-height: 1; }
+/* "more" -> About dialog */
+.rbxtest-dialog-overlay { position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100000; display: flex; align-items: center; justify-content: center; padding: 16px; background: rgba(0,0,0,.6); }
+.rbxtest-dialog { position: relative; width: 100%; max-width: 480px; max-height: 85vh; overflow: auto; border-radius: 12px; background: var(--color-surface-0, #fff); color: var(--color-content-default, inherit); }
+.rbxtest-dialog-close { position: absolute; top: 8px; right: 12px; z-index: 1; background: none; border: 0; padding: 0 4px; font-size: 28px; line-height: 1; color: inherit; cursor: pointer; }
+.rbxtest-dialog .edit-bio-btn { background: none; border: 0; padding: 0; margin-top: 8px; cursor: pointer; color: inherit; text-decoration: underline; }
+.profile-platform-container[hidden], #edit-user-profile-web-app[hidden] { display: none !important; }
+.profile-setting-row { text-align: left; }
+.profile-setting-row-value { max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rbxtest-dialog [data-profile-about] { white-space: pre-wrap; overflow-wrap: anywhere; }
+#profile-area pre.description-content { white-space: pre-wrap; overflow-wrap: anywhere; }
+.rbxtest-frame-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: contain; pointer-events: none; z-index: 6; }
+.rbxtest-frame-tile { width: 92px; padding: 10px 6px; border: 2px solid rgba(128,128,128,.4); border-radius: 12px; background: none; color: inherit; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 6px; font: inherit; }
+.rbxtest-frame-tile[aria-pressed="true"] { border-color: #335fff; }
+.rbxtest-frame-thumb { width: 56px; height: 56px; border-radius: 50%; border: 2px dashed rgba(128,128,128,.6); display: flex; align-items: center; justify-content: center; font-size: 24px; opacity: .8; }
+/* fallback layout for the Currently Wearing carousel (its styles are normally injected by FigureBlox's scripts) */
+.css-1i465w8-carousel { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
+.css-izzd58-carouselItem, .css-6xn1qo-carouselItem { flex: 0 0 150px; width: 150px; }
+
+</style>
+<script src="shell.js" defer></script>
+<script id="rbxtest-avatar-detect">
+/* AVATAR DETECTION SCRIPT
+   Signup saves account.selectedCharacter = "male" | "female" (see index.html).
+   This script detects the logged-in account, reads that saved choice and puts the matching avatar URL
+   (male -> proud-river worker, female -> green-leaf worker) into the <img> inside EVERY
+   .thumbnail-2d-container.avatar-card-image on the page, now and whenever the site redraws one. */
+(function () {
+    var URLS = {
+        male: 'https://proud-river-a3e7.tristan-manzano-actor.workers.dev/',
+        female: 'https://green-leaf-a836.tristan-manzano-actor.workers.dev/'
+    };
+    var SELECTOR = '.thumbnail-2d-container.avatar-card-image';
+    var EXTRA = 'a[href="/users/profile"] .thumbnail-2d-container, a[href^="/users/"][href$="/profile"] .thumbnail-2d-container, #header .avatar-headshot .thumbnail-2d-container, #header .avatar-headshot-xs .thumbnail-2d-container';
+
+    function readJSON(storage, key) {
+        try { return JSON.parse(storage.getItem(key)); } catch (e) { return null; }
+    }
+    // 1) the current logged-in account (session -> saved account)
+    function detectCurrentAccount() {
+        var session = readJSON(sessionStorage, 'rbxtest_session') || readJSON(localStorage, 'rbxtest_session');
+        if (!session || !session.username) return null;
+        var accounts = readJSON(localStorage, 'rbxtest_accounts') || {};
+        return accounts[session.username] || null;
+    }
+    // 2) its saved selectedCharacter -> the avatar URL
+    function avatarFileForAccount(account) {
+        var choice = String((account && (account.selectedCharacter || account.character)) || '').toLowerCase();
+        return choice === 'female' ? URLS.female : URLS.male;
+    }
+
+    function setAvatar(container, file) {
+        var only = container.children.length === 1 ? container.firstElementChild : null;
+        if (only && only.tagName === 'IMG' && only.getAttribute('data-avatar-file') === file ) return;   // already correct
+        var img = document.createElement('img');
+        img.className = 'profile-avatar';
+        img.setAttribute('data-avatar-file', file);
+        img.alt = 'FigureBlox avatar';
+        img.src = file;
+        container.setAttribute('data-rbx-avatar', 'true');
+        Array.prototype.slice.call(container.classList).forEach(function (c) {
+            if (/shimmer|loading|broken|placeholder/i.test(c)) container.classList.remove(c);
+        });
+        container.replaceChildren(img);
+    }
+    // 3) put the PNG into both (all) avatar locations
+    function loadAccountAvatar(currentAccount) {
+        currentAccount = currentAccount || detectCurrentAccount();
+        if (!currentAccount) return;
+        var file = avatarFileForAccount(currentAccount);
+        var seen = [];
+        var list = Array.prototype.slice.call(document.querySelectorAll(SELECTOR))
+            .concat(Array.prototype.slice.call(document.querySelectorAll(EXTRA)));
+        list.forEach(function (container) {
+            if (seen.indexOf(container) !== -1) return;
+            seen.push(container);
+            setAvatar(container, file);
+        });
+    }
+    window.detectCurrentAccount = detectCurrentAccount;
+    window.avatarFileForAccount = avatarFileForAccount;
+    window.loadAccountAvatar = loadAccountAvatar;
+
+    // run now, when the DOM is ready, when everything has loaded, and whenever the site re-renders an avatar
+    var queued = false;
+    function schedule() {
+        if (queued) return;
+        queued = true;
+        (window.requestAnimationFrame || setTimeout)(function () { queued = false; loadAccountAvatar(); });
+    }
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', schedule); else schedule();
+    window.addEventListener('load', schedule);
+    new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<script id="rbxtest-messages">
+document.documentElement.classList.add('rbx-auth-pending');
+document.addEventListener('DOMContentLoaded', function () {
+    rbxShell.requireLogin(function (acc, key) {
+        document.title = 'Messages - FigureBlox';
+        var root = document.getElementById('page-root');
+        var esc = rbxShell.esc;
+        var ICON = function (fill) { return 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" fill="none" viewBox="0 0 56 56"><path fill="' + fill + '" d="M11.676 0 0 44.166 43.577 56l11.676-44.166zm20.409 35.827-12.177-3.308 3.264-12.342 12.182 3.308z"/></svg>'); };
+        var LOGO = '<span aria-hidden="true" class="flex items-center justify-center size-700" style="display:flex;width:44px;height:44px;"><img alt="" src="' + ICON('#393b3d') + '" class="dark:hidden" style="width:100%;height:100%;"><img alt="" src="' + ICON('#ffffff') + '" class="hidden dark:block" style="width:100%;height:100%;display:none;"></span>';
+        var BTN = 'foundation-web-button relative clip group/interactable focus-visible:outline-focus disabled:outline-none cursor-pointer relative flex items-center justify-center stroke-none padding-y-none select-none radius-medium text-label-medium height-1000 padding-x-medium bg-action-standard content-action-standard';
+        var BTN_STYLE = 'display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border:0;border-radius:8px;background:rgba(128,128,128,.22);color:inherit;font:inherit;font-weight:600;cursor:pointer;';
+        var TABS = [['inbox', 'Inbox'], ['sent', 'Sent'], ['notifications', 'News'], ['archive', 'Archive']];
+        var tab = 'inbox', view = 'list', selected = {}, openId = null;
+
+        var SUBJECT = 'Welcome to FigureBlox!';
+        var BODY = [
+            'Hello, and welcome to FigureBlox! This is an unblocked version of FigureBlox.',
+            'There are no games available right now, but we are working as hard as we can to add as much as we possibly can. Thank you so much for your patience and for bearing with us while we build this out. More is on the way, so keep checking back!'
+        ];
+        var VERIFIED = '<span class="relative inline-flex items-center justify-center" role="img" aria-label="Verified Badge Icon" title="Verified Badge Icon" style="margin-left:4px;flex:none;"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-filled-verified-backplate size-[var(--icon-size-medium)] content-system-emphasis"></span><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-filled-verified-check size-[var(--icon-size-medium)] absolute content-[white]"></span></span>';
+
+        function cur() { return rbxShell.readAccounts()[key] || acc; }
+        // Inbox = the welcome message + every News post sent by the FigureBlox account
+        function inbox() {
+            var a = cur(), seen = a.readPosts || [];
+            var list = rbxShell.readPosts().map(function (p) {
+                return { id: p.id, kind: 'post', subject: p.title || 'Announcement from FigureBlox', body: String(p.body || '').split(/\n+/).filter(Boolean), date: p.date, read: seen.indexOf(p.id) !== -1 };
+            });
+            var all = rbxShell.readAccounts();
+            rbxShell.pendingRequests(a).forEach(function (r) {
+                var f = all[r.from];
+                if (f && !rbxShell.isBanned(f)) list.push({ id: 'req:' + r.from, kind: 'request', from: f, subject: 'Friend request', body: [rbxShell.displayName(f) + ' (@' + f.username + ') wants to be your friend.'], date: r.date, read: false });
+            });
+            list.push({ id: 'welcome', kind: 'welcome', subject: SUBJECT, body: BODY, date: a.created, read: !!a.messageRead });
+            return list.sort(function (x, y) { return new Date(y.date) - new Date(x.date); });
+        }
+        function setRead(id, read) {
+            if (String(id).indexOf('req:') === 0) return;   // requests stay unread until accepted or declined
+            if (id === 'welcome') rbxShell.saveAccount(key, { messageRead: read });
+            else {
+                var seen = (cur().readPosts || []).filter(function (x) { return x !== id; });
+                if (read) seen.push(id);
+                rbxShell.saveAccount(key, { readPosts: seen });
+            }
+        }
+        function allChecked(list) { return list.length > 0 && list.every(function (m) { return selected[m.id]; }); }
+        function checkbox(on, label, id) {
+            return '<button type="button" role="checkbox" aria-checked="' + on + '" aria-label="' + esc(label) + '" data-chk="' + esc(id) + '" style="width:24px;height:24px;border-radius:4px;border:2px solid rgba(128,128,128,.7);background:' + (on ? '#335fff' : 'none') + ';color:#fff;cursor:pointer;padding:0;line-height:1;font-size:14px;">' + (on ? '✓' : '') + '</button>';
+        }
+        function tabsHTML() {
+            return '<div role="tablist" style="display:flex;border-bottom:1px solid rgba(128,128,128,.4);">' + TABS.map(function (t) {
+                var on = t[0] === tab;
+                return '<button type="button" role="tab" aria-selected="' + on + '" data-tab="' + t[0] + '" style="flex:1;height:48px;background:none;border:0;border-bottom:3px solid ' + (on ? 'currentColor' : 'transparent') + ';color:inherit;font:inherit;font-weight:' + (on ? 700 : 500) + ';cursor:pointer;">' + t[1] + '</button>';
+            }).join('') + '</div>';
+        }
+        function sender() {
+            return '<span class="text-title-large content-emphasis" style="display:flex;align-items:center;min-width:0;"><span>FigureBlox</span>' + VERIFIED + '<span class="text-body-medium content-muted" style="margin-left:6px;">@FigureBlox</span></span>';
+        }
+        function newsHTML(head) {
+            var poster = rbxShell.isPoster(cur());
+            if (!poster) return head + '<p class="text-body-medium content-muted" style="padding:24px 8px;">No messages</p>';
+            var posts = rbxShell.readPosts();
+            var bar = '<div style="display:flex;justify-content:flex-end;margin:12px 0;"><button type="button" id="news-post" class="' + BTN + '" style="' + BTN_STYLE + 'background:#335fff;color:#fff;">Post</button></div>';
+            var rows = posts.map(function (p) {
+                return '<div style="padding:16px;border-bottom:1px solid rgba(128,128,128,.25);"><div style="display:flex;justify-content:space-between;gap:8px;"><span class="text-title-large content-emphasis">' + esc(p.title || 'Announcement from FigureBlox') + '</span><span class="text-caption-medium content-muted" style="white-space:nowrap;">' + rbxShell.fmtDate(p.date, true) + '</span></div><div class="text-body-large content-default" style="margin-top:6px;white-space:pre-wrap;overflow-wrap:anywhere;">' + esc(p.body) + '</div></div>';
+            }).join('');
+            return head + bar + (posts.length ? '<div style="border:1px solid rgba(128,128,128,.4);border-radius:8px;overflow:hidden;">' + rows + '</div>' : '<p class="text-body-medium content-muted" style="padding:24px 8px;">No posts yet. Press Post to send one to everyone\'s inbox.</p>');
+        }
+        function listHTML() {
+            var head = '<h1 class="text-heading-large content-emphasis" style="margin:0 0 12px;">Messages</h1>' + tabsHTML();
+            if (tab === 'notifications') return newsHTML(head);
+            if (tab !== 'inbox') return head + '<p class="text-body-medium content-muted" style="padding:24px 8px;">No messages</p>';
+            var list = inbox();
+            var actions = '<div style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:12px 0;">' +
+                '<label style="display:flex;align-items:center;gap:12px;padding-left:16px;cursor:pointer;">' + checkbox(allChecked(list), 'All', 'all') + '<span class="text-body-medium content-emphasis">All</span></label>' +
+                '<div style="display:flex;gap:8px;flex-wrap:wrap;">' +
+                ['Archive', 'Mark As Read', 'Mark As Unread'].map(function (l) { return '<button type="button" class="' + BTN + '" data-action="' + l + '" style="' + BTN_STYLE + '">' + l + '</button>'; }).join('') + '</div></div>';
+            var rows = list.map(function (m) {
+                var unread = !m.read;
+                if (m.kind === 'request') {
+                    var f = m.from, av = window.avatarFileForAccount ? window.avatarFileForAccount(f) : '';
+                    return '<div class="private-message-row" data-request-row="' + esc(f.username) + '" style="display:grid;grid-template-columns:32px 48px 1fr;align-items:center;gap:12px;padding:16px;border-bottom:1px solid rgba(128,128,128,.25);background:rgba(128,128,128,.14);">' +
+                        '<div>' + checkbox(!!selected[m.id], m.subject, m.id) + '</div>' +
+                        '<a href="profileview.devtools?u=' + encodeURIComponent(f.username) + '" aria-label="' + esc(f.username) + '" style="display:block;width:44px;height:44px;border-radius:50%;overflow:hidden;background:rgba(128,128,128,.25);"><img alt="" src="' + esc(av) + '" style="width:100%;height:100%;object-fit:cover;"></a>' +
+                        '<div style="min-width:0;">' +
+                        '<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;"><span class="text-title-large content-emphasis" style="display:flex;align-items:center;min-width:0;"><span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">' + esc(rbxShell.displayName(f)) + '</span>' + rbxShell.plusHTML + '<span class="text-body-medium content-muted" style="margin-left:6px;">@' + esc(f.username) + '</span></span><span class="text-caption-medium content-muted" style="white-space:nowrap;">' + rbxShell.fmtDate(m.date, false) + '</span></div>' +
+                        '<div class="text-body-large content-muted" style="margin-top:4px;"><span class="content-emphasis" style="font-weight:700;">Friend request</span><span> - ' + esc(rbxShell.displayName(f)) + ' wants to be your friend.</span></div>' +
+                        '<div style="display:flex;gap:8px;margin-top:10px;"><button type="button" data-accept="' + esc(f.username) + '" style="' + BTN_STYLE + 'background:#335fff;color:#fff;">Accept</button><button type="button" data-decline="' + esc(f.username) + '" style="' + BTN_STYLE + '">Decline</button></div></div></div>';
+                }
+                return '<div class="private-message-row" style="display:grid;grid-template-columns:32px 48px 1fr;align-items:center;gap:12px;padding:16px;border-bottom:1px solid rgba(128,128,128,.25);background:' + (unread ? 'rgba(128,128,128,.14)' : 'transparent') + ';">' +
+                    '<div>' + checkbox(!!selected[m.id], m.subject, m.id) + '</div>' +
+                    '<button type="button" data-open="' + esc(m.id) + '" aria-label="FigureBlox" style="background:none;border:0;padding:0;cursor:pointer;">' + LOGO + '</button>' +
+                    '<button type="button" data-open="' + esc(m.id) + '" aria-label="' + esc(m.subject) + '" style="background:none;border:0;padding:0;text-align:left;color:inherit;font:inherit;min-width:0;cursor:pointer;">' +
+                    '<div style="display:flex;justify-content:space-between;gap:8px;align-items:center;">' + sender() + '<span class="text-caption-medium content-muted" style="white-space:nowrap;">' + rbxShell.fmtDate(m.date, false) + '</span></div>' +
+                    '<div class="text-body-large content-muted" style="margin-top:4px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><span class="content-emphasis" style="' + (unread ? 'font-weight:700;' : '') + '">' + esc(m.subject) + '</span><span> - ' + esc(m.body[0] || '') + '</span></div></button></div>';
+            }).join('');
+            return head + actions + '<div style="border:1px solid rgba(128,128,128,.4);border-radius:8px;overflow:hidden;">' + rows + '</div>';
+        }
+        function detailHTML() {
+            var m = inbox().filter(function (x) { return x.id === openId; })[0];
+            if (!m) { view = 'list'; return listHTML(); }
+            return '<h1 class="text-heading-large content-emphasis" style="margin:0 0 12px;">Messages</h1>' + tabsHTML() +
+                '<div style="display:flex;gap:8px;margin:12px 0;"><button type="button" class="' + BTN + '" data-action="Back" style="' + BTN_STYLE + '">Back</button><button type="button" class="' + BTN + '" data-action="Archive" style="' + BTN_STYLE + '">Archive</button></div>' +
+                '<div class="bg-surface-100 stroke-standard stroke-muted radius-medium padding-large" style="border:1px solid rgba(128,128,128,.4);border-radius:8px;padding:24px;">' +
+                '<h2 class="text-heading-medium content-emphasis" style="margin:0;overflow-wrap:anywhere;">' + esc(m.subject) + '</h2>' +
+                '<div style="display:flex;gap:12px;margin-top:16px;align-items:flex-start;"><a href="profileview.devtools?u=roblox" style="flex:none;">' + LOGO + '</a>' +
+                '<div style="min-width:0;display:flex;flex-direction:column;gap:4px;"><a href="profileview.devtools?u=roblox" class="text-title-medium content-emphasis" style="display:flex;align-items:center;text-decoration:none;color:inherit;font-weight:600;"><span>FigureBlox</span>' + VERIFIED + '</a>' +
+                '<div class="text-body-medium content-muted">@FigureBlox</div><div class="text-caption-medium content-muted">' + rbxShell.fmtDate(m.date, true) + '</div></div></div>' +
+                '<div class="private-message-body text-body-large content-default" style="margin-top:20px;line-height:1.5;">' + m.body.map(function (p) { return '<p style="margin:0 0 16px;overflow-wrap:anywhere;">' + esc(p) + '</p>'; }).join('') + '</div></div>';
+        }
+        function render() {
+            root.innerHTML = '<main class="private-message-page" style="max-width:970px;margin:0 auto;padding:16px;">' + (view === 'detail' && tab === 'inbox' ? detailHTML() : listHTML()) + '</main>';
+        }
+
+        // Post dialog (FigureBlox account only): add a description and send it to every inbox
+        function openPostDialog() {
+            if (!rbxShell.isPoster(cur())) return;
+            var o = document.createElement('div');
+            o.style.cssText = 'position:fixed;inset:0;z-index:100000;background:rgba(0,0,0,.6);display:flex;align-items:center;justify-content:center;padding:16px;';
+            o.innerHTML = '<div role="dialog" aria-modal="true" aria-label="New post" style="background:var(--color-surface-0,#fff);color:var(--color-content-default,inherit);border-radius:12px;padding:24px;width:100%;max-width:520px;max-height:90vh;overflow:auto;box-shadow:0 8px 32px rgba(0,0,0,.5);">' +
+                '<h2 class="text-heading-small" style="margin:0 0 16px;">New post</h2>' +
+                '<label class="text-body-medium" for="post-title">Title (optional)</label>' +
+                '<input id="post-title" type="text" maxlength="100" placeholder="Announcement from FigureBlox" style="width:100%;box-sizing:border-box;margin:6px 0 16px;padding:10px 12px;border:1px solid rgba(128,128,128,.5);border-radius:8px;background:none;color:inherit;font:inherit;">' +
+                '<label class="text-body-medium" for="post-desc">Description</label>' +
+                '<textarea id="post-desc" maxlength="1000" rows="6" placeholder="Write what everyone should see in their inbox" style="width:100%;box-sizing:border-box;margin:6px 0 4px;padding:10px 12px;border:1px solid rgba(128,128,128,.5);border-radius:8px;background:none;color:inherit;font:inherit;resize:vertical;"></textarea>' +
+                '<div class="text-caption-medium content-muted" id="post-count" style="text-align:right;margin-bottom:16px;">0/1000</div>' +
+                '<div style="display:flex;justify-content:flex-end;gap:8px;"><button type="button" id="post-cancel" style="height:40px;padding:0 16px;border:0;border-radius:8px;background:rgba(128,128,128,.22);color:inherit;font:inherit;font-weight:600;cursor:pointer;">Cancel</button>' +
+                '<button type="button" id="post-send" style="height:40px;padding:0 20px;border:0;border-radius:8px;background:#8a8d94;color:#fff;font:inherit;font-weight:600;cursor:not-allowed;" disabled>Send</button></div></div>';
+            document.body.appendChild(o);
+            var desc = o.querySelector('#post-desc'), title = o.querySelector('#post-title'), send = o.querySelector('#post-send');
+            function close() { o.remove(); }
+            function sync() {
+                var ok = desc.value.trim().length > 0;
+                send.disabled = !ok; send.style.background = ok ? '#335fff' : '#8a8d94'; send.style.cursor = ok ? 'pointer' : 'not-allowed';
+                o.querySelector('#post-count').textContent = desc.value.length + '/1000';
+            }
+            desc.addEventListener('input', sync);
+            o.querySelector('#post-cancel').addEventListener('click', close);
+            o.addEventListener('mousedown', function (e) { if (e.target === o) close(); });
+            o.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+            send.addEventListener('click', function () {
+                if (send.disabled) return;
+                if (!rbxShell.addPost(title.value.trim(), desc.value.trim())) return rbxShell.toast('Only the FigureBlox account can post');
+                close(); rbxShell.sync(); rbxShell.toast('Posted to everyone\'s inbox'); render();
+            });
+            title.focus();
+        }
+
+        root.addEventListener('click', function (e) {
+            var t = e.target.closest && e.target.closest('button');
+            if (!t) return;
+            if (t.id === 'news-post') return openPostDialog();
+            if (t.hasAttribute('data-accept')) { rbxShell.acceptRequest(t.getAttribute('data-accept')); rbxShell.sync(); rbxShell.toast('Friend request accepted'); return render(); }
+            if (t.hasAttribute('data-decline')) { rbxShell.declineRequest(t.getAttribute('data-decline')); rbxShell.sync(); return render(); }
+            if (t.dataset.tab) { tab = t.dataset.tab; view = 'list'; selected = {}; return render(); }
+            if (t.hasAttribute('data-open')) { openId = t.getAttribute('data-open'); setRead(openId, true); rbxShell.sync(); view = 'detail'; return render(); }
+            if (t.hasAttribute('data-chk')) {
+                var id = t.getAttribute('data-chk'), list = inbox();
+                if (id === 'all') { var on = !allChecked(list); selected = {}; if (on) list.forEach(function (m) { selected[m.id] = true; }); }
+                else selected[id] = !selected[id];
+                return render();
+            }
+            var act = t.dataset.action;
+            if (act === 'Back') { view = 'list'; return render(); }
+            if (act === 'Mark As Read' || act === 'Mark As Unread') {
+                var ids = Object.keys(selected).filter(function (k) { return selected[k]; });
+                if (!ids.length) return rbxShell.toast('Select a message first');
+                ids.forEach(function (k) { setRead(k, act === 'Mark As Read'); });
+                rbxShell.sync(); return render();
+            }
+            if (act === 'Archive') rbxShell.toast('Coming soon');
+        });
+        window.addEventListener('storage', function () { if (!document.querySelector('[role="dialog"][aria-label="New post"]') && view === 'list') render(); });
+        render();
+    });
+});
+</script>
+
+<style id="fb-brand">.fb-wordmark{display:inline-flex;align-items:center;font:800 26px/1 "Builder Sans","Gotham SSm",Arial,sans-serif;color:#fff;letter-spacing:-.5px;white-space:nowrap}.light-theme .fb-wordmark{color:#232527}#nav-logo-link{display:flex;align-items:center;height:100%}.header-icon-logo.fb-wordmark{width:auto;height:auto;background:none;font-size:30px}</style></head>
+<body id="rbx-body" dir="ltr" class="rbx-body age-roblox-theme builder-font light-theme" data-internal-page-name="Profile">
+<div id="wrap" class="wrap no-gutter-ads logged-in left-nav-new-width">
+<div id="navigation-container" class="builder-font">
+<div id="header" class="navbar-fixed-top rbx-header" role="navigation"><div class="container-fluid"><div class="rbx-navbar-header"><div class="navbar-header"><a id="nav-logo-link" class="navbar-brand" href="home.devtools"><span class="fb-wordmark" aria-label="FigureBlox">FigureBlox</span></a></div></div>
+<ul class="nav rbx-navbar hidden-xs hidden-sm col-md-5 col-lg-4"><li><a id="nav-charts-md-link" class="font-header-2 nav-menu-title text-header" href="home.devtools">Home</a></li><li><a id="nav-marketplace-md-link" class="font-header-2 nav-menu-title text-header" href="#">Marketplace</a></li><li><a id="header-develop-md-link" class="font-header-2 nav-menu-title text-header" href="#">Create</a></li><li><div><a href="#" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] font-header-2 nav-menu-title text-header robux-menu-btn">Robux</a></div></li></ul>
+<ul class="nav rbx-navbar hidden-md hidden-lg col-xs-12"><li><a id="nav-charts-sm-link" class="font-header-2 nav-menu-title text-header" href="home.devtools">Home</a></li><li><a id="nav-marketplace-sm-link" class="font-header-2 nav-menu-title text-header" href="#">Marketplace</a></li><li><a id="header-develop-sm-link" class="font-header-2 nav-menu-title text-header" href="#">Create</a></li><li><div><a href="#" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] font-header-2 nav-menu-title text-header robux-menu-btn">Robux</a></div></li></ul>
+<div id="right-navigation-header"><div class="navbar-right rbx-navbar-right"><ul class="[&>li]:relative navbar-right rbx-navbar-icon-group"><div class="age-bracket-label text-header"><a href="profileview.devtools" class="foundation-web-link inline-flex items-center gap-xsmall content-emphasis no-underline motion-safe:transition-opacity hover:cursor-pointer hover:[opacity:0.8] radius-xsmall focus-visible:[outline-style:solid] focus-visible:[outline-width:var(--stroke-standard)] focus-visible:[outline-color:var(--color-system-emphasis)] text-link dynamic-overflow-container"><span class="avatar avatar-headshot-xs"><span class="thumbnail-2d-container avatar-card-image"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt="d3gev"></span></span><span class="text-overflow age-bracket-label-username font-caption-header" data-rbx-username>d3gev</span></a></div></ul></div></div></div></div>
+<div id="left-navigation-container"><div class="left-nav fixed left-[0] [z-index:1001] bg-surface-0 motion-safe:[transition-property:transform,visibility] ease-standard-out duration-100 large:visible large:[transform:unset] invisible [transform:translateX(-100%)]"><div class="flex width-[289px] height-full scroll-y"><div class="width-[288px]"><div class="padding-x-large padding-y-medium flex flex-col gap-large"><nav><ul class="flex flex-col gap-small"><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span class="radius-circle clip size-600"><span class="thumbnail-2d-container avatar-card-image"><img class="" src="https://proud-river-a3e7.tristan-manzano-actor.workers.dev/" alt="d3gev"></span></span></span><span class="flex flex-col gap-xsmall min-width-0 large:flex-row large:align-items-center"><span class="flex gap-xsmall min-width-0 align-items-center"><span class="text-truncate-end text-no-wrap" data-rbx-username>d3gev</span></span></span></a></li><li><a href="home.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-house size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Home</span></a></li><li><a href="profileview.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-person size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Profile</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-roblox-plus size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">FigureBlox Plus</span></a></li><li><a href="messages.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none bg-shift-200"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-speech-bubble-align-center size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Messages</span><span class="fill basis-auto padding-x-small flex justify-end items-center"><div class="foundation-web-badge flex items-center select-none gap-[var(--size-150)] radius-circle height-600 width-[fit-content] padding-x-small bg-system-contrast content-inverse-emphasis stroke-none"><span class="text-no-wrap text-truncate-split text-label-small padding-y-xsmall padding-x-xxsmall content-inverse-emphasis">1</span></div></span></a></li><li><a href="friends.devtools" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-two-people size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Friends</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-person-standing size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Avatar</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-backpack size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Inventory</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-hand-two-arrows-horizontal size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Trade</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-three-people size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Communities</span></a></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-fountain-pen-nib size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Newsroom</span></a></li><li><button type="button" class="bg-none width-full stroke-none content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-building-store size-[var(--icon-size-large)]"></span></span><span>Official Store</span></button></li><li><a href="#" class="content-emphasis text-title-large flex items-center gap-small padding-left-xsmall padding-right-xxsmall radius-medium relative clip group/interactable focus-visible:outline-focus disabled:outline-none"><div role="presentation" class="absolute inset-[0] transition-colors group-hover/interactable:bg-[var(--color-state-hover)] group-active/interactable:bg-[var(--color-state-press)] group-disabled/interactable:bg-none"></div><span class="size-1000 grow-0 shrink-0 basis-auto flex justify-center items-center"><span aria-hidden="true" data-testid="foundation-web-icon" class="grow-0 shrink-0 basis-auto icon icon-regular-gift-card size-[var(--icon-size-large)]"></span></span><span class="min-width-0 text-truncate-end text-no-wrap">Buy Gift Cards</span></a></li></ul></nav></div></div><div role="separator" data-orientation="vertical" aria-orientation="vertical" class="stroke-default self-stretch" style="border-right-width: 0px; border-bottom-width: 0px; box-sizing: border-box; border-style: solid; height: 100%; width: 0px; border-left-width: var(--stroke-standard); border-top-width: 0px;"></div></div></div></div>
+</div>
+<main class="container-main content-no-ads" id="container-main" tabindex="-1">
+<div class="content" id="content"><div id="page-root"></div></div>
+</main>
+<footer class="container-footer" id="footer-container"><div class="footer"><ul class="row footer-links flex flex-wrap justify-center padding-bottom-xxsmall"><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">About Us</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Jobs</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Newsroom</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Parents</a></li><li class="footer-link"><a href="#" class="text-footer-nav giftcards" target="_blank" rel="noreferrer">Buy Gift Cards</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Help</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Terms</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Accessibility</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Privacy</a></li><li class="footer-link"><a href="#" class="text-footer-nav" target="_blank" rel="noreferrer">Sitemap</a></li></ul><div class="row copyright-container flex items-center justify-between padding-top-xlarge gutter-x-small"><div class="col-sm-6 col-md-9"><p class="text-footer footer-note">©2026 FigureBlox Corporation. FigureBlox, the FigureBlox logo and Powering Imagination are among our registered and unregistered trademarks in the U.S. and other countries.</p></div></div></div></footer>
+</div>
+<script id="rbxtest-profile-route">
+/* Routes every profile link (/users/profile or /users/<id>/profile, relative or on any host,
+   including the workers.dev address the page is served from) to the local profileview.devtools page. */
+(function () {
+    var TARGET = 'profileview.devtools';
+    function isProfile(a) {
+        var h = a.getAttribute && a.getAttribute('href');
+        if (!h || h === TARGET) return false;
+        var path;
+        try { path = new URL(h, window.location.href).pathname; } catch (e) { return false; }
+        return /^\/users\/(\d+\/)?profile\/?$/.test(path);
+    }
+    function patch(root) {
+        (root.querySelectorAll ? root.querySelectorAll('a[href*="/users/"]') : []).forEach(function (a) {
+            if (isProfile(a)) a.setAttribute('href', TARGET);
+        });
+    }
+    document.addEventListener('click', function (e) {
+        var a = e.target.closest && e.target.closest('a[href]');
+        if (!a || !isProfile(a)) return;
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.ctrlKey || e.metaKey || a.target === '_blank') window.open(TARGET, '_blank');
+        else window.location.href = TARGET;
+    }, true);
+    patch(document);
+    new MutationObserver(function () { patch(document); })
+        .observe(document.documentElement, { childList: true, subtree: true });
+})();
+</script>
+<script id="rbxtest-build">
+/* Build stamp: open any page with ?build on the end (e.g. profileview.devtools?build) to see which version is being served. */
+(function () {
+    var BUILD = 'r9-2026-10-04';
+    try { console.log('FigureBlox build', BUILD); } catch (e) {}
+    if (!/[?&]build\b/.test(location.search)) return;
+    var b = document.createElement('div');
+    b.textContent = 'build ' + BUILD;
+    b.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:2147483647;background:#111;color:#0f0;font:12px monospace;padding:4px 8px;border-radius:4px;';
+    document.body.appendChild(b);
+})();
+</script>
+</body>
+</html>
